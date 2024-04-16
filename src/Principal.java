@@ -23,5 +23,6 @@ class Principal {
         frame.setLocation(x,y);//ubica la ventana en las coordenadas establecidas
 
         frame.setVisible(true);
+        System.out.printl("HOLAA");
     }
 }
