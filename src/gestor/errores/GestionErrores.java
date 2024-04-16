@@ -14,6 +14,14 @@ public class GestionErrores {
     public GestionErrores(){
         //Instancia
         error = new HashMap<Integer, String>();
+        System.out.println("YA ME ARTEEEEE");
+        System.out.println("YA ME ARTEEEEE");
+        System.out.println("YA ME ARTEEEEE");
+        System.out.println("YA ME ARTEEEEE");
+        System.out.println("YA ME ARTEEEEE");
+        System.out.println("YA ME ARTEEEEE");
+        System.out.println("YA ME ARTEEEEE");
+        System.out.println("YA ME ARTEEEEE");
 
     }
     //Métodos
