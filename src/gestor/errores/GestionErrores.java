@@ -1,46 +1,38 @@
 package gestor.errores;
 //Se importa el paquete java.util.* para usar las clases y las interfaces que contiene, como Map.
+//import gestor.archivos.ArchivoTexto;
+import gestor.archivos.ArchivoTexto;
 import java.util.*;
 
 public class GestionErrores {
-    // para almacenar errores con un identificador único, un booleano existeError para indicar
-    // si hay errores, un entero noErrror que parece ser un intento de almacenar el número de error actual
-    private HashMap<Integer, String> error;
-    private boolean existeError;
-    private int noErrror;
-    // guardar una descripción técnica del error.
-    private String DescripccionTecnica;
+    //private HashMap<Integer, String> error;
+    private MapaErrores mapaErrores;
+    private ArchivoTexto archivoTexto;
+
+    private String description;
+
     //Constructor GestionErrores
     public GestionErrores(){
         //Instancia
-        error = new HashMap<Integer, String>();
-        System.out.println("YA ME ARTEEEEE");
-        System.out.println("YA ME ARTEEEEE");
-        System.out.println("YA ME ARTEEEEE");
-        System.out.println("YA ME ARTEEEEE");
-        System.out.println("YA ME ARTEEEEE");
-        System.out.println("YA ME ARTEEEEE");
-        System.out.println("YA ME ARTEEEEE");
-        System.out.println("YA ME ARTEEEEE");
-
+        //error = new HashMap<Integer, String>();
+        mapaErrores=new MapaErrores();
+        archivoTexto=new ArchivoTexto("ERRORES");
     }
     //Métodos
     private void cargaErrores(){
 
     }
-    public void setNoErrror (int noErrror, String a){
+    public String getDescription (int noErrror){
+        description=mapaErrores.MensajeError(noError);
+        escribirEnArchivo(noError,description);
+        return description;
+    }
 
+    private void escribirEnArchivo(int noError,String description){
+        archivoTexto.abrirModoEscritura();
+        archivoTexto.escribir("Numero de error: " +noError);
+        archivoTexto.abrirModoEscritura("Error: " + description);
+        archivoTexto.cerrar();
     }
-    //Regresa null
-    public String getError (){
-        return null;
-    }
-    //Regresa null
-    public String getErrorTecnico(){
-        return null;
-    }
-    //Regresa existeError
-    public boolean isExisteError() {
-        return existeError;
-    }
+
 }
