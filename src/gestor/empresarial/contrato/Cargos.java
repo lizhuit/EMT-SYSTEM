@@ -4,5 +4,17 @@ package gestor.empresarial.contrato;
 // Declaración del enum llamado Cargos
 public enum Cargos{
     // Definición de las constantes del enum
-    confianza, sindicalizado, temporal
+    confianza("Empleado (confianza)"),
+    sindicalizado("Empleado (sindicalizado)"),
+    temporal("Empleado (temporal)");
+    private String nombre;
+
+    Cargos(String nombre){//Constructor de Cargos
+        this.nombre  = nombre;
+    }
+
+    @Override
+    public String toString(){
+        return nombre;//devuelve el nombre de la constante emun
+    }
 }
