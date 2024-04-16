@@ -25,5 +25,12 @@ class Principal {
         frame.setVisible(true);
 
         System.out.println("Hola");
+        System.out.println("Hola");
+        System.out.println("Hola");
+        System.out.println("Hola");
+        System.out.println("Hola");
+        System.out.println("Hola");
+
+
     }
 }
