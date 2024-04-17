@@ -1,6 +1,6 @@
 package gestor.interfaz;
 //importamos paquetes para que funcione el codigo
-import gestor.empresarial.contrato.Cargos;
+import gestor.empresarial.contrato.*;
 import gestor.empresarial.datos.DatosEmpresariales;
 import gestor.empresarial.datos.DatosPersonales;
 import gestor.empresarial.empleados.Empleados;

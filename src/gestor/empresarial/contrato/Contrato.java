@@ -1,5 +1,6 @@
 package gestor.empresarial.contrato;
 
+import gestor.interfaz.Contrato;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -8,12 +9,12 @@ public final class Contrato {//final evita que sea heredada
     // Declaración de los atributos de la clase
     private int id;
     private int noContrato;
-    private int annio;
+    private int anio;
     private String horario;
     private Cargos tipoCargo;
 
     // Constructor de la clase Contrato
-    public Contrato(int id, int noContrato, int annio, String horario, Cargos tipoCargo){ // parámetros
+    public Contrato(int id, int noContrato, int anio, String horario, Cargos tipoCargo){ // parámetros
         // Inicialización del tipo de cargo
         tipoCargo = Cargos.confianza;
         tipoCargo = Cargos.sindicalizado;
@@ -22,7 +23,7 @@ public final class Contrato {//final evita que sea heredada
         this.tipoCargo = tipoCargo;
         this.horario = horario;
         this.noContrato = noContrato;
-        this.annio = annio;
+        this.anio = anio;
     }
     // Métodos setter y getter
     public void setTipoCargo(Cargos tipoCargo){
@@ -35,11 +36,11 @@ public final class Contrato {//final evita que sea heredada
         return noContrato;//regresa noContrato
     }
 
-    public void setAnnio(int annio) {
-        this.annio = annio;
+    public void setAnnio(int anio) {
+        this.anio = anio;
     }
     public int getAnnio() {
-        return annio;//regresa annio
+        return anio;//regresa annio
     }
 
 }
