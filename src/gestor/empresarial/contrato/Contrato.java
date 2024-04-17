@@ -40,7 +40,7 @@ public final class Contrato {//final evita que sea heredada
         this.anio = anio;
     }
     public int getAnnio() {
-        return anio;//regresa annio
+        return anio;//regresa año
     }
 
 }
