@@ -82,6 +82,10 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
         return indice;
     }
 
+    public int getId(int indice){
+        return guard[indice];
+    }
+
     public DatosPersonales getInfoPersonal(int indice) {
         DatosPersonales datosPersonales = this.persoDatos[indice];
         return datosPersonales;
@@ -117,6 +121,8 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
     public void setCargo(Cargos r) {
 
     }
+
+
 
     @Override
     public String getInfoEmpleado(int a) {
