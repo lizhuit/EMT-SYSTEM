@@ -119,6 +119,7 @@ public class Contrato extends JFrame{
 
                         //muestra en la interfaz
                         labeId.setText("ID:" +idBuscado);
+                        labeId.setText("ID:" +idBuscado);
                         /*// Mostrando la información en la ventana
                         labeIId.setText("ID: "+ idBuscado);
                         labelName.setText("Nombre: " + nombre);
