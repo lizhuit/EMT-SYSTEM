@@ -1,99 +1,141 @@
 package gestor.empresarial.empleados;//Declara que esta clase pertenece al paquete gestor.empresarial
 //Importa dos clases de otros paquetes
 import gestor.empresarial.contrato.Cargos;
+import gestor.empresarial.contrato.Contrato;
 import gestor.empresarial.datos.DatosEmpresariales;
+import gestor.empresarial.datos.DatosPersonales;
 import gestor.errores.GestionErrores;
+
+import java.time.Year;
+
 //Declara una clase abstracta Empleados que implementa la interfaz iEmpleados.
 // Al ser abstracta, esta clase no puede ser instanciada
-public abstract class Empleados implements iEmpleados {
+public final class Empleados implements iEmpleados {
     //Atibutos
-    private DatosEmpresariales empleados[];
-    private int i;
-    public GestionErrores error;
-    //Constructor sin parámetros
-    public Empleados(){
-        empleados = new DatosEmpresariales[10];
-        i=0;
+    private DatosEmpresariales empreDatos[];
+    private DatosPersonales persoDatos[];
+    private Contrato contraDatos[];
+        private int[] guard = new int[50];
+        private static Empleados ins;
+        private int i;
+        public GestionErrores error;
+
+        //Constructor sin parámetros
+    public Empleados() {
+            i = 0;
+            ins = null;
+            empreDatos = new DatosEmpresariales[50];
+            persoDatos = new DatosPersonales[50];
+            contraDatos = new Contrato[50];
+        }
+
+        //Mantener datos
+        public static Empleados getIns() {
+            if (ins == null) {
+                ins = new Empleados();
+            }
+            return ins;
+        }
+
+//Método addDatosPersonales con paso de parámetros
+public void addDatosPersonales(DatosPersonales datosPersonales) {
+        this.persoDatos[this.i] = datosPersonales;
+        guard[i] = i + 1;
+        this.i++;
     }
 
-    /*public void addEmpleados(String adscripcion, String telefonoExterior, String puesto, int idEmpleado)
-    {
-        empleados[i]=new DatosEmpresariales();
-        empleados[i].setAdscripcion(adscripcion);
-        empleados[i].setTelefonoExterior(telefonoExterior);
-        empleados[i].setPuesto(puesto);
-        empleados[i].setIdEmpleado(idEmpleado);
-        i++;
-    }
-
-    public String getEmpleado(int i){
-        String ads = empleados[i].getAdscripcion();
-        String tel=  empleados[i].getTelefonoExterior();
-        String pue= empleados[i].getPuesto();
-        int id = empleados[i].getIdEmpleado();
-        return ads + " - " + tel + " - " + pue + " - " + id;
-    }*/
-
-
-
-    //Método addDatosPersonales con paso de parámetros
-    public void addDatosPersonales (String z, String y, String x){
-
-    }
     //Método addContrato con pas de parámetros
-    public void addContrato(int a, int b, Cargos c){
+    public void addContrato(int indice, Contrato contrato) {
+        this.contraDatos[indice] = contrato;
+    }
+
+    public void addDatosEmpresariales(int indice, DatosEmpresariales datosEmpresariales) {
+        this.empreDatos[indice] = datosEmpresariales;
+    }
+
+    public void addContrato(int indice, Contrato contrato) {
+        this.contraDatos[indice] = contrato;
+    }
+
+
+    //Método findEmpleado
+    private int findEmpleado(int id) {
+        int indice = -1;
+        for (int j = 0; j < 50; j++) {
+            if (guard[j] == id) {
+                indice = j;
+                break;
+            }
+        }
+        return indice;
+    }
+
+    //Método  findEmpleado
+    private int findEmpleado(String nombre) {
+        int indice = -1;
+        for (int j = 0; j < 50; j++) {
+            if (persoDatos[j] != null && persoDatos[j].getNombre().equals(nombre)) {
+                indice = j;
+                break;
+            }
+        }
+        return indice;
+    }
+
+    public DatosPersonales getInfoPersonal(int indice) {
+        DatosPersonales datosPersonales = this.persoDatos[indice];
+        return datosPersonales;
+    }
+
+    public DatosEmpresariales getInfoEmpresarial(int indice) {
+        DatosEmpresariales datosEmpresariales = this.empreDatos[indice];
+        return datosEmpresariales;
+    }
+
+    public Contrato getInfoContrato(int indice) {
+        Contrato contrato = this.contraDatos[indice];
+        return contrato;
+    }
+
+    //Mostrar datos del empleado
+    public void showDatosEmpleados() {
 
     }
-    //Método findEmpleado que regresa un entero
-    private int findEmpleado (int s){
-        return s;
+
+    //Mostrar contratos
+    public void showContradosEmpleados(int x) {
+
     }
-    //Método  findEmpleado que regresa 0
-    private int findEmpleado (String e){
+
+    //Método getAntiguedad que regresa w
+    public int getAntiguedad(int annio) {
+        int antiguedad = Year.now().getValue() - annio;
         return 0;
     }
-    //Método setWhatsApp con parámetros
-    public void setWhatsApp (int h, String t){
 
-    }
-    //Metódo datosPersonales con parámetro y regresa null
-    private String datosPersonales (int u){
-        return null;
-    }
-    //Metódo getInfoEmpleado con parámetro y regresa null
-    public String getInfoEmpleado (int a){
-        return null;
-    }
-    //Metódo getInfoEmpleado con parámetro y regresa null
-    public String getInfoEmpleado (String a){
-        return null;
-    }
-    //Metódo setAdscripcion con parámetro
-    public void setAdscripcion (int a, String b){
-
-    }
-    //Metódo setTelefonoExtension con parámetros
-    public void setTelefonoExtension (int c, String s){
-
-    }
-    //Metódo setPuesto con parámetros
-    public void setPuesto (int g, String t){
-
-    }
-    //Mostrar datos del empleado
-    public void showDatosEmpleados(){
-
-    }
-    //Mostrar contratos
-    public void showContradosEmpleados (int x){
-
-    }
-    //Método getAntiguedad que regresa w
-    public int getAntiguedad (int w){
-        return w;
-    }
     //Método setCargo con paso de parámetro
-    public void setCargo(Cargos r){
+    public void setCargo(Cargos r) {
 
+    }
+
+    @Override
+    public String getInfoEmpleado(int a) {
+        return null;
+    }
+
+    @Override
+    public String getInfoEmpleado(String a) {
+        return null;
+    }
+
+    @Override
+    public void showDatosEmpleado() {
+
+    }
+
+    @Override
+    public int getAntiguedad() {
+        return 0;
     }
 }
+
