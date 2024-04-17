@@ -2,7 +2,7 @@ package gestor.archivos;
 
 import java.io.*;
 
-class ArchivoTexto implements FileText{//el nombre de la implementacion debe ser igual al constructor
+public class ArchivoTexto extends ControlArchivos implements iFileText{//el nombre de la implementacion debe ser igual al constructor
     //se declaran atributos:
     //abre el archivo
     private File file;//no es un atributo ordinario, es uno compuesto
@@ -20,9 +20,10 @@ class ArchivoTexto implements FileText{//el nombre de la implementacion debe ser
     private boolean modoEscritura;
 
 
-    public ArchivoTexto(String tituloArchivo){//constructor
+    public ArchivoTexto(String arc){
+        super();//constructor
         try{
-            file= new File(tituloArchivo);
+            file= new File(arc);
             if(!file.exists())
                 file.createNewFile();
 
@@ -33,12 +34,9 @@ class ArchivoTexto implements FileText{//el nombre de la implementacion debe ser
         catch(Exception e){
             System.out.println("Error al intentar buscar el archivo");
             this.archivoExistente=false;
-            //System.out.println();
         }
     }
     public ArchivoTexto(String b, boolean c){//constructor
-
-        // super (c);
     }
     public void AbrirModoLectura(){
         if(archivoExistente==true) {
