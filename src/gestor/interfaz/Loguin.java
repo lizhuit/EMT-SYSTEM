@@ -40,7 +40,7 @@ public class Loguin extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String usuario = txtUsuario.getText();
                 String password = txtPassContra.getText();
-                if (!usuario.isEmpty() && !txtPassContra.isEmpty()){
+                if (!usuario.isEmpty() && !password.isEmpty()){
                     if (usuario.equals("cisco") && password.equals("cisco123")) {
                         Menu1 obj = new Menu1();
                         dispose();

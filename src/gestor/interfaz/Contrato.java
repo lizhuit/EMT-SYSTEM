@@ -1,11 +1,14 @@
 package gestor.interfaz;
 //importamos paquetes para que funcione el codigo
+import gestor.empresarial.contrato.Cargos;
 import gestor.empresarial.datos.DatosEmpresariales;
 import gestor.empresarial.datos.DatosPersonales;
 import gestor.empresarial.empleados.Empleados;
 
 //librerias a utilizar de JAVA
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +26,8 @@ public class Contrato extends JFrame{
     private JLabel labId;
     private JLabel labName;
     private JLabel labAdscripcion;
-    private JLabel labelPuesto;
+    private JLabel labPuesto;
+    private JTable tbCon;
 
     DefaultTableModel dtm=new DefaultTableModel();//se crea la tabla
     private Empleados emple;
@@ -55,9 +59,9 @@ public class Contrato extends JFrame{
     private void startComp(){
         String encabezados[]={"ID empleado","Nombre Completo","No.Contrato","Fecha","Cargo"};
         dtm.setColumnIdentifiers(encabezados);
-        tablaC.getTableHeader().setResizingAllowed(false);
-        tablaC.getTableHeader().setReorderingAllowed(false);
-        tablaC.setModel(dtm);
+        tbCon.getTableHeader().setResizingAllowed(false);
+        tbCon.getTableHeader().setReorderingAllowed(false);
+        tbCon.setModel(dtm);
         if(emple.datosContratoVacios()==false){
             actualizarTablaDesdeContrato();
         }
@@ -105,7 +109,7 @@ public class Contrato extends JFrame{
                 if(textoBusqueda != null){
                     //busca el id de la lista de empleados
                     int idBuscando=Integer.parseInt(textoBusqueda);//se va a int
-                    indice=emple.findEmpleado(idBuscado);
+                    indice=emple.findEmpleado(idBuscando);
 
                     //verifica si se encontro el ID
                     if(indice != -1){
@@ -118,34 +122,119 @@ public class Contrato extends JFrame{
                         String puesto=datosEmpresariales.getPuesto();
 
                         //muestra en la interfaz
-                        labeId.setText("ID:" +idBuscado);
-                        labeId.setText("ID:" +idBuscado);
-                        /*// Mostrando la información en la ventana
-                        labeIId.setText("ID: "+ idBuscado);
-                        labelName.setText("Nombre: " + nombre);
-                        labelAdscripcion.setText("Adscripcion: " + adscripcion);
-                        labelPuesto.setText("Puesto: " + puesto);
-                        fieldBuscador.setText("");*/
+                        labId.setText("ID:" +idBuscando);
+                        labName.setText("Nombre:"+nombre);
+                        labAdscripcion.setText("Adscripción"+adscripcion);
+                        labPuesto.setText("Puesto"+puesto);
+                        txtIdEmple.setText("");
+                    }else{
+                        //sms de error
+                        JOptionPane.showMessageDialog(Contrato.this, "ID NO ENCONTRADO", "Error",JOptionPane.ERROR_MESSAGE);
 
                     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                }
+                else{
+                    JOptionPane.showMessageDialog(Contrato.this,"ID VACIO","ERROR",JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
+
+        //agregamos a la lista
+        tbCon.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if(!e.getValueIsAdjusting()){//no habra selección multiple
+                    int selectedRow=tbCon.getSelectedRow();
+                    if(selectedRow !=-1){
+                        //obtenemos datos de la fila seleccionada
+                        Object noContrato=tbCon.getValueAt(selectedRow,2);
+                        Object anio=tbCon.getValueAt(selectedRow,3);
+                        Object horario=tbCon.getValueAt(selectedRow,4);
+                        Object tipoCargo=tbCon.getValueAt(selectedRow,5);
+
+                        //regresa datos en los cuadros de escritura
+                        txtNumContrato.setText(noContrato.toString());
+                        txtAnio.setText(anio.toString());
+                        txtHorario.setText(horario.toString());
+                        comBoxCargo.setSelectedItem(tipoCargo);
+                    }
+                }
+            }
+        });
+
+
+        btnAgregar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(indice != -1){
+                    String noContrato=txtNumContrato.getText();
+                    String anio=txtAnio.getText();
+                    String horario=txtHorario.getText();
+                    Cargos tipoCargo =(Cargos) comBoxCargo.getSelectedItem();
+                    //ve que hayan 0 campos vacios
+                    if(noContrato.isEmpty() || anio.isEmpty() || horario.isEmpty() || tipoCargo==null){
+                        //sms error diciendo q campo esta vacio
+                        String mensaje="COMPLETE TODOS LOS CAMPOS \n";
+                        if(noContrato.isEmpty()){
+                            mensaje = mensaje + "Némero de Contrato \n";
+                        }
+                        if(anio.isEmpty()){
+                            mensaje = mensaje + "Año \n";
+                        }
+                        if(tipoCargo==null){
+                            mensaje = mensaje + "Tipo de Cargo \n";
+                        }
+                        JOptionPane.showMessageDialog(null,mensaje,"CAMPOS VACÍOS",JOptionPane.ERROR_MESSAGE);
+                    }
+                    else{
+                        //agregamos a las filas
+                        obtenerYGuardarContrato();
+                        actualizarTablaDesdeContrato();
+
+                        //clear txt after add
+                        txtNumContrato.setText("");
+                        txtAnio.setText("");
+                        txtHorario.setText("");
+                        comBoxCargo.setSelectedItem(null);
+                        labId.setText("");
+                        labName.setText("");
+                        labAdscripcion.setText("");
+                        labPuesto.setText("");
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"SELECCIONA UN EMPLEADO","ERROR",JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+        btnCerrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu1 onjm=new Menu1();
+                dispose();
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 }

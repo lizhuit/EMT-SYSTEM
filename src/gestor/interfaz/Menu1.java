@@ -38,7 +38,7 @@ public class Menu1 {
         btnContrato.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                Contratos objcon=new Contratos();
+                Contrato objcon=new Contrato();
                 dispose();
             }
         });
