@@ -1,10 +1,12 @@
 package gestor.empresarial.empleados;//Declara que esta clase pertenece al paquete gestor.empresarial
+
 //Importa dos clases de otros paquetes
 import gestor.empresarial.contrato.Cargos;
 import gestor.empresarial.contrato.Contrato;
 import gestor.empresarial.datos.DatosEmpresariales;
 import gestor.empresarial.datos.DatosPersonales;
 import gestor.errores.GestionErrores;
+import gestor.interfaz.*;
 
 import java.time.Year;
 
@@ -16,25 +18,25 @@ public final class Empleados implements iEmpleados {
     private DatosPersonales persoDatos[];
     private Contrato contraDatos[];
         private int[] guard = new int[50];
-        private static Empleados ins;
+        private static Empleados instancia;
         private int i;
         public GestionErrores error;
 
         //Constructor sin parámetros
     public Empleados() {
             i = 0;
-            ins = null;
+            instancia = null;
             empreDatos = new DatosEmpresariales[50];
             persoDatos = new DatosPersonales[50];
             contraDatos = new Contrato[50];
         }
 
         //Mantener datos
-        public static Empleados getIns() {
-            if (ins == null) {
-                ins = new Empleados();
+        public static Empleados getInstancia() {
+            if (instancia == null) {
+                instancia = new Empleados();
             }
-            return ins;
+            return instancia;
         }
 
 //Método addDatosPersonales con paso de parámetros
@@ -144,4 +146,9 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
         return 0;
     }
 }
+
+
+
+
+
 
