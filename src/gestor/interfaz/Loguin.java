@@ -27,7 +27,7 @@ public class Loguin extends JFrame {
         gestionErrores = new GestionErrores();
         setTitle("EMT-SYSTEM"); //Estabalecemos el titulo de la ventana
         this.setSize(300, 300); //Establecemos el tamaño de la ventana
-        //this.setResizable(false);
+        this.setResizable(false);
         this.setLocationRelativeTo(null); //Establecemos la posicion inicial de la ventana en el centro
         this.getContentPane().add(Contenedor);
         this.setVisible(true); //Volvemos nuestra ventana visible
@@ -40,16 +40,16 @@ public class Loguin extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String usuario = txtUsuario.getText();
                 String password = txtPassContra.getText();
-                if (!usuario.isEmpty() && !txtPassContra.isEmpty()) {
+                if (!usuario.isEmpty() && !txtPassContra.isEmpty()){
                     if (usuario.equals("cisco") && password.equals("cisco123")) {
                         Menu1 obj = new Menu1();
                         dispose();
                     } else {
-                        String mensaje = gestionErrores.getDescripcionTecnica(2);
+                        String mensaje = gestionErrores.getDescription(2);
                         JOptionPane.showMessageDialog(null, mensaje, "DATOS INCORRECTOS", JOptionPane.ERROR_MESSAGE);
                     }
                 } else {
-                    String mensaje = gestionErrores.getDescripcionTecnica(3);
+                    String mensaje = gestionErrores.getDescription(3);
                     JOptionPane.showMessageDialog(null, mensaje, "FALTAN DATOS POR LLENAR", JOptionPane.ERROR_MESSAGE);
                 }
             }

@@ -17,16 +17,17 @@ public class GestionErrores {
         //error = new HashMap<Integer, String>();
         mapaErrores=new MapaErrores();
         archivoTexto=new ArchivoTexto("ERRORES");
-    }
-    //Métodos
-    private void cargaErrores(){
 
     }
-    public String getDescription (int noErrror){
+    //Métodos
+
+    public String getDescription(int noErrror){
         description=mapaErrores.MensajeError(noError);
         escribirEnArchivo(noError,description);
         return description;
     }
+
+
 
     private void escribirEnArchivo(int noError,String description){
         archivoTexto.abrirModoEscritura();
