@@ -22,18 +22,18 @@ public class GestionErrores {
     //Métodos
 
     public String getDescription(int noErrror){
-        description=mapaErrores.MensajeError(noError);
-        escribirEnArchivo(noError,description);
+        description=mapaErrores.MensajeError(noErrror);
+        escribirEnArchivo(noErrror,description);
         return description;
     }
 
 
 
     private void escribirEnArchivo(int noError,String description){
-        archivoTexto.abrirModoEscritura();
-        archivoTexto.escribir("Numero de error: " +noError);
-        archivoTexto.abrirModoEscritura("Error: " + description);
-        archivoTexto.cerrar();
+        archivoTexto.AbrirModoEscritura();
+        archivoTexto.Escribir("NUMERO DE ERROR: " +noError);
+        archivoTexto.Escribir("ERROR: " +description);
+        archivoTexto.Cerrar();
     }
 
 }

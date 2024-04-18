@@ -1,7 +1,7 @@
 package gestor.interfaz;
 import gestor.empresarial.datos.*;
 import gestor.interfaz.Menu1;
-import gestor.empresarial.empleados.Empleados;
+import gestor.empresarial.empleados.*;
 import gestor.errores.GestionErrores;
 
 import javax.swing.*;
@@ -87,16 +87,16 @@ public class Menu3 extends JFrame{
         dtm.setRowCount(0);
 
         //add a tabla
-        for(int i=0;i<100;i++){
+        for(int i=0;i<50;i++){
             DatosEmpresariales objDE =emple.getInfoEmpresarial(i);
             DatosPersonales objDP= emple.getInfoPersonal(i);
             if(objDE!= null){
                 int id=emple.getId(i);
                 String nom=objDP.getNombre();
-                String tel=objDP.getTelefono();
-                String ext=objDP.getExtension();
-                String ads=objDP.getAdscripcion();
-                String puesto=objDP.getPuesto();
+                String tel=objDE.getTelefonoExterior();
+                String ext=objDE.getExtension();
+                String ads=objDE.getAdscripcion();
+                String puesto=objDE.getPuesto();
                 dtm.addRow(new Object[]{id,nom,ext,tel,ads,puesto});
             }
         }

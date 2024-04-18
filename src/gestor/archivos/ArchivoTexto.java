@@ -2,7 +2,7 @@ package gestor.archivos;
 
 import java.io.*;
 
-public class ArchivoTexto extends ControlArchivos implements iFileText{//el nombre de la implementacion debe ser igual al constructor
+public final class ArchivoTexto extends ControlArchivos implements iFileText{//el nombre de la implementacion debe ser igual al constructor
     //se declaran atributos:
     //abre el archivo
     private File file;//no es un atributo ordinario, es uno compuesto
@@ -32,7 +32,7 @@ public class ArchivoTexto extends ControlArchivos implements iFileText{//el nomb
             this.modoEscritura=false;
         }
         catch(Exception e){
-            System.out.println("Error al intentar buscar el archivo");
+            System.out.println("NO SE ENCUENTRA EL ARCHIVO");
             this.archivoExistente=false;
         }
     }
@@ -70,7 +70,7 @@ public class ArchivoTexto extends ControlArchivos implements iFileText{//el nomb
                 fw = new FileWriter(this.file.getAbsoluteFile(),true);
                 bw = new BufferedWriter(this.fw);
 
-                this.modoEscritura = true;
+                modoEscritura = true;
                 System.out.println("ARCHIVO ABIERTO EN MODO ESCRITURA");
             } catch (Exception e) {
                 System.out.println("ERROR: EL ARCHIVO NO SE PUEDE ABIRIR EN MODO ESCRITURA");
