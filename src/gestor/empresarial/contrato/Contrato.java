@@ -1,9 +1,5 @@
 package gestor.empresarial.contrato;
 
-import gestor.interfaz.Contrato;
-import java.util.List;
-import java.util.ArrayList;
-
 // Declaración de la clase Contrato
 public final class Contrato {//final evita que sea heredada
     // Declaración de los atributos de la clase

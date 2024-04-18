@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Contrato extends JFrame{
+public class Contrato1 extends JFrame{
     private JPanel panel1;
     private JTextField txtIdEmple;
     private JTextField txtNumContrato;
@@ -33,7 +33,7 @@ public class Contrato extends JFrame{
     private Empleados emple;
     private int indice=-1;
 
-    public Contrato(){
+    public Contrato1(){
         emple=emple.getInstancia();
         ventana();//se ajusta la ventana
 
@@ -73,7 +73,7 @@ public class Contrato extends JFrame{
         String horario=txtHorario.getText();
         Cargos tipoCargo=(Cargos) comBoxCargo.getSelectedItem();
 
-        Contrato obj=new Contrato(noContrato,anio,horario,tipoCargo);//se gardan datos en el contrato
+        Contrato1 obj=new Contrato1(noContrato,anio,horario,tipoCargo);//se gardan datos en el contrato
 
         //guarda el objeto en empleados
         emple.addContrato(indice,obj);
@@ -86,7 +86,7 @@ public class Contrato extends JFrame{
 
         //se agregan datos a la tabla:
         for(int i=0;i<50;i++){
-            Contrato obj=emple.getInfoContrato(i);
+            Contrato1 obj=emple.getInfoContrato(i);
             DatosPersonales objDP=emple.getInfoPersonal(i);
             if(obj !=null){
                 int id=emple.getID(i);
@@ -129,12 +129,12 @@ public class Contrato extends JFrame{
                         txtIdEmple.setText("");
                     }else{
                         //sms de error
-                        JOptionPane.showMessageDialog(Contrato.this, "ID NO ENCONTRADO", "Error",JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(Contrato1.this, "ID NO ENCONTRADO", "Error",JOptionPane.ERROR_MESSAGE);
 
                     }
                 }
                 else{
-                    JOptionPane.showMessageDialog(Contrato.this,"ID VACIO","ERROR",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(Contrato1.this,"ID VACIO","ERROR",JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
