@@ -1,6 +1,6 @@
 package gestor.interfaz;
 
-import gestor.interfaz.Menu1;
+import gestor.interfaz.*;
 import gestor.empresarial.datos.DatosPersonales;
 import gestor.empresarial.empleados.Empleados;
 import gestor.errores.*;
@@ -10,6 +10,7 @@ import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.event.ListSelectionEvent;
 
 public class Menu2 extends JFrame {
     private JPanel panel1;
@@ -34,7 +35,7 @@ public class Menu2 extends JFrame {
         ajustesVentana();
 
         initComponents();
-        funcionesBotones();
+        funcbtn();
     }
 
     public void ajustesVentana() {
@@ -125,60 +126,60 @@ public class Menu2 extends JFrame {
         return camposCorectos;
     }
 
-    public void funcionesBotones(){
-        //add list a table
-        @Override
-        public void valueChanged(ListSelectionEvent e){
-            if(!e.getValueIsAdjusting()){//no hay events de varia seleccion
-                int selectRow= tabM2.getSelectedRow();
-                if(selectRow != -1){ //si se selecciono fila
-                    //date of fila select
-                    Object id=tabM2.getValueAt(selectRow,0);
-                    Object nombre=tabM2.getValueAt(selectRow,1);
-                    Object wtapp=tabM2.getValueAt(selectRow,2);
-                    Object correo=tabM2.getValueAt(selectRow,3);
+    public void funcbtn() {
+        tabM2.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting()) {//no hay events de varia seleccion
+                    int selectRow = tabM2.getSelectedRow();
+                    if (selectRow != -1) { //si se selecciono fila
+                        //date of fila select
+                        Object id = tabM2.getValueAt(selectRow, 0);
+                        Object nombre = tabM2.getValueAt(selectRow, 1);
+                        Object wtapp = tabM2.getValueAt(selectRow, 2);
+                        Object correo = tabM2.getValueAt(selectRow, 3);
 
-                    //muestra datos de txt
-                    txtIdDP.setText(id.toString());
-                    txtNombre.setText(nombre.toString());
-                    txtWats.setText(wtapp.toString());
-                    txtCorreo.setText(correo.toString());
+                        //muestra datos de txt
+                        txtIdDP.setText(id.toString());
+                        txtNombre.setText(nombre.toString());
+                        txtWats.setText(wtapp.toString());
+                        txtCorreo.setText(correo.toString());
+                    }
                 }
-
-                btnCerrar.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        Menu1 obj=new Menu1();
-                        dispose();
-                    }
-                });
-
-                btnAgregar.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        String id=txtIdDP.getText();
-                        String nom=txtNombre.getText();
-                        String wats=txtWats.getText();
-                        String correo=txtCorreo.getText();
-                        boolean camposCorrect=verificarCampos();//ningun campo vacio/repetido
-                        if(camposCorrect==true){
-                            //true y agrega
-                            obtenerYGuardarDatosPersonales();
-                            actualizarTablaDesdeDatosPersonales();
-                            //clear y add
-                            txtIdDP.setText("");
-                            txtNombre.setText("");
-                            txtWats.setText("");
-                            txtCorreo.setText("");
-                        }
-                    }
-                });
-
             }
-        }
+        });
+
+        btnCerrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu1 obj = new Menu1();
+                dispose();
+            }
+        });
+
+
+        btnAgregar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String id = txtIdDP.getText();
+                String nom = txtNombre.getText();
+                String wats = txtWats.getText();
+                String correo = txtCorreo.getText();
+                boolean camposCorrect = verificarCampos();//ningun campo vacio/repetido
+                if (camposCorrect == true) {
+                    //true y agrega
+                    obtenerYGuardarDatosPersonales();
+                    actualizarTablaDesdeDatosPersonales();
+                    //clear y add
+                    txtIdDP.setText("");
+                    txtNombre.setText("");
+                    txtWats.setText("");
+                    txtCorreo.setText("");
+                }
+            }
+        });
     }
 }
-
 
 
 

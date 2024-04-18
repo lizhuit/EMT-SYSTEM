@@ -2,8 +2,8 @@ package gestor.interfaz;
 
 import gestor.empresarial.datos.DatosEmpresariales;
 import gestor.empresarial.datos.DatosPersonales;
-import gestor.interfaz.Menu1;
-import gestor.empresarial.empleados.Empleados;
+import gestor.interfaz.*;
+import gestor.empresarial.empleados.*;
 import gestor.errores.GestionErrores;
 
 import javax.swing.*;
@@ -45,7 +45,7 @@ public class Menu3 extends JFrame{
 
         ajustesVentana();
         initComponents();
-        funcionesBotones();
+        funcbtn();
     }
 
     public void ajustesVentana(){
@@ -104,7 +104,7 @@ public class Menu3 extends JFrame{
         }
     }
 
-    public void funcionesBotones(){
+    public void funcbtn(){
         txtId.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

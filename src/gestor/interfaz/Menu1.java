@@ -1,5 +1,6 @@
 package gestor.interfaz;
 
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +12,7 @@ public class Menu1 extends JFrame {
     private JButton btnDatosEmpr;
 
 
-    public void funcBotones() {
+    public void funcBtn() {
         btnCerrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
