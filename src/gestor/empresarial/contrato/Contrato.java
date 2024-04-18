@@ -1,5 +1,6 @@
 package gestor.empresarial.contrato;
 
+import gestor.empresarial.empleados.*;
 // Declaración de la clase Contrato
 public final class Contrato {//final evita que sea heredada
     // Declaración de los atributos de la clase
@@ -10,7 +11,7 @@ public final class Contrato {//final evita que sea heredada
     private Cargos tipoCargo;
 
     // Constructor de la clase Contrato
-    public Contrato(int id, int noContrato, int anio, String horario, Cargos tipoCargo){ // parámetros
+    public Contrato(int noContrato, int anio, String horario, Cargos tipoCargo){ // parámetros
         // Inicialización del tipo de cargo
         tipoCargo = Cargos.confianza;
         tipoCargo = Cargos.sindicalizado;

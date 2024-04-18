@@ -164,7 +164,7 @@ public class Menu3 extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Menu1 objM1=new Menu1();
-                dispose;
+                dispose();
             }
         });
 

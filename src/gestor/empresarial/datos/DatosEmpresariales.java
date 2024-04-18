@@ -7,11 +7,13 @@ public final class DatosEmpresariales {
     private String puesto;
     private String extension;
 
+
     //Constructor
-    public DatosEmpresariales(String adscripcion, String telefonoExterior, String puesto){
+    public DatosEmpresariales(String adscripcion, String telefonoExterior, String puesto,String extension){
         this.adscripcion=adscripcion;
         this.telefonoExterior=telefonoExterior;
         this.puesto=puesto;
+        this.extension=extension;
     }
 
     //getAdscripcion() y setAdscripcion() permiten obtener y establecer su valor de la variable.

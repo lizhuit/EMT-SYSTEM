@@ -1,9 +1,8 @@
 package gestor.interfaz;
 //importamos paquetes para que funcione el codigo
 import gestor.empresarial.contrato.*;
-import gestor.empresarial.datos.DatosEmpresariales;
-import gestor.empresarial.datos.DatosPersonales;
-import gestor.empresarial.empleados.Empleados;
+import gestor.empresarial.datos.*;
+import gestor.empresarial.empleados.*;
 
 //librerias a utilizar de JAVA
 import javax.swing.*;
@@ -73,7 +72,7 @@ public class Contrato1 extends JFrame{
         String horario=txtHorario.getText();
         Cargos tipoCargo=(Cargos) comBoxCargo.getSelectedItem();
 
-        Contrato1 obj=new Contrato1(noContrato,anio,horario,tipoCargo);//se gardan datos en el contrato
+        Contrato obj=new Contrato(noContrato,anio,horario,tipoCargo);//se gardan datos en el contrato
 
         //guarda el objeto en empleados
         emple.addContrato(indice,obj);
@@ -86,13 +85,13 @@ public class Contrato1 extends JFrame{
 
         //se agregan datos a la tabla:
         for(int i=0;i<50;i++){
-            Contrato1 obj=emple.getInfoContrato(i);
+            Contrato obj=emple.getInfoContrato(i);
             DatosPersonales objDP=emple.getInfoPersonal(i);
             if(obj !=null){
-                int id=emple.getID(i);
+                int id=emple.getId(i);
                 String nombre=objDP.getNombre();
                 int noContrato=obj.getNoContrato();
-                int anio=obj.getAnio();
+                int anio=obj.getAnnio();
                 String horario=obj.getHorario();
                 Cargos cargo=obj.getTipoCargo();
                 dtm.addRow(new Object[]{id,nombre,noContrato,anio,horario,cargo});

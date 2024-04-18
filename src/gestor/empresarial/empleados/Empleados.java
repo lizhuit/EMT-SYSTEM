@@ -1,13 +1,10 @@
 package gestor.empresarial.empleados;//Declara que esta clase pertenece al paquete gestor.empresarial
 
 //Importa dos clases de otros paquetes
-import gestor.empresarial.contrato.Cargos;
-import gestor.empresarial.contrato.Contrato;
+import gestor.empresarial.contrato.*;
 import gestor.empresarial.datos.DatosEmpresariales;
 import gestor.empresarial.datos.DatosPersonales;
 import gestor.errores.GestionErrores;
-import gestor.interfaz.Menu3;
-
 import java.time.Year;
 
 //Declara una clase abstracta Empleados que implementa la interfaz iEmpleados.
@@ -17,10 +14,10 @@ public final class Empleados implements iEmpleados {
     private DatosEmpresariales empreDatos[];
     private DatosPersonales persoDatos[];
     private Contrato contraDatos[];
-        private int[] guard = new int[50];
-        private static Empleados instancia;
-        private int i;
-        public GestionErrores error;
+    private int[] guard = new int[50];
+    private static Empleados instancia;
+    private int i;
+    public GestionErrores error;
 
         //Constructor sin parámetros
     public Empleados() {
@@ -51,7 +48,7 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
             for(int j=0; j<50; j++){
                 if (persoDatos[j] != null){
                     String nombre = persoDatos[j].getNombre();
-                    String correo = persoDatos[j].getCorreo;
+                    String correo = persoDatos[j].getCorreo();
                     String whatsapp = persoDatos[j].getWhatsapp();
                     System.out.println("Id: "+guard[j]+"\tNombre: "+nombre + "\tCorreo: "+correo + "\tWhatsapp: "+whatsapp);
                 }
@@ -85,10 +82,10 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
 
 
     //Método addContrato con pas de parámetros
-    public void addContrato(int indice, Contrato contrato) {
+    /*public void addContrato(int indice, Contrato contrato) {
 
         this.contraDatos[indice] = contrato;
-    }
+    }*/
 
     public void addDatosEmpresariales(int indice, DatosEmpresariales datosEmpresariales) {
         this.empreDatos[indice] = datosEmpresariales;
@@ -100,7 +97,7 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
 
 
     //Método findEmpleado
-    private int findEmpleado(int id) {
+    public int findEmpleado(int id) {
         int indice = -1;
         for (int j = 0; j < 50; j++) {
             if (guard[j] == id) {

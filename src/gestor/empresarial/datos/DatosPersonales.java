@@ -31,7 +31,7 @@ public abstract class DatosPersonales {
         this.apellidos = apellidos;
     }
     //getCorreo() y setCorreo() permiten obtener y establecer su valor de la variable.
-    protected String getCorreo() {
+    public String getCorreo() {
         return correo;
     }
     protected void setCorreo(String correo) {
