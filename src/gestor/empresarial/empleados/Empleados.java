@@ -46,6 +46,44 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
         this.i++;
     }
 
+    public void imprimirDatos(){
+        if(datosPerVacios() == false){
+            for(int j=0; j<50; j++){
+                if (persoDatos[j] != null){
+                    String nombre = persoDatos[j].getNombre();
+                    String correo = persoDatos[j].getCorreo;
+                    String whatsapp = persoDatos[j].getWhatsapp();
+                    System.out.println("Id: "+guard[j]+"\tNombre: "+nombre + "\tCorreo: "+correo + "\tWhatsapp: "+whatsapp);
+                }
+            }
+        }
+        if (datosEmpVacios() == false){
+            for(int j=0; j<100; j++){
+                if (empreDatos[j] != null){
+                    String telefono = empreDatos[j].getTelefonoExterior();
+                    String extencion = empreDatos[j].getExtension();
+                    String adscripcion = empreDatos[j].getAdscripcion();
+                    String puesto = empreDatos[j].getPuesto();
+                    System.out.println("ID:" + guard[j] + "\tTelefono:" + telefono + "\tExtension:" + extencion + "\tAdscripcion:" + adscripcion + "\tPuesto:" + puesto);
+                }
+            }
+        }
+
+        if (datosContratoVacios() == false){
+            for(int j=0; j<100; j++){
+                if (contraDatos[j] != null){
+                    int noContrato = contraDatos[j].getNoContrato();
+                    int annio = contraDatos[j].getAnnio();
+                    String horario = contraDatos[j].getHorario();
+                    Cargos tipoCargo = contraDatos[j].getTipoCargo();
+                    System.out.println("ID:" + guard[j] + "\tNoConctato:" + noContrato + "\tAnnio:" + annio + "\tHorario:" + horario + "\tCargo:" + tipoCargo);
+                }
+            }
+        }
+    }
+
+
+
     //Método addContrato con pas de parámetros
     public void addContrato(int indice, Contrato contrato) {
         this.contraDatos[indice] = contrato;
@@ -124,6 +162,55 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
 
     }
 
+
+
+    public boolean datosPerVacios(){
+        int suma=0;
+        boolean vacio;
+        for(int j=0; j<50; j++){
+            if(persoDatos[j] != null){
+                suma += 1;
+            }
+        }
+        if (suma>0){
+            vacio = false;
+        }else{
+            vacio = true;
+        }
+        return vacio;
+    }
+
+    public boolean datosEmpVacios(){
+        int suma=0;
+        boolean vacio;
+        for(int j=0; j<50; j++){
+            if(empreDatos[j] != null){
+                suma += 1;
+            }
+        }
+        if (suma>0){
+            vacio = false;
+        }else{
+            vacio = true;
+        }
+        return vacio;
+    }
+
+    public boolean datosContratoVacios(){
+        int suma=0;
+        boolean vacio;
+        for(int j=0; j<50; j++){
+            if(contraDatos[j] != null){
+                suma += 1;
+            }
+        }
+        if (suma>0){
+            vacio = false;
+        }else{
+            vacio = true;
+        }
+        return vacio;
+    }
 
 
     @Override
