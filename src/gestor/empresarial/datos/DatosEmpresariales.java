@@ -5,6 +5,7 @@ public final class DatosEmpresariales {
     private String adscripcion;
     private String telefonoExterior;
     private String puesto;
+    private String extension;
 
     //Constructor
     public DatosEmpresariales(String adscripcion, String telefonoExterior, String puesto){
@@ -14,24 +15,32 @@ public final class DatosEmpresariales {
     }
 
     //getAdscripcion() y setAdscripcion() permiten obtener y establecer su valor de la variable.
-    String getAdscripcion() {
+    public String getAdscripcion() {
         return adscripcion;
     }
     void setAdscripcion(String adscripcion) {
         this.adscripcion = adscripcion;
     }
     //getTelefonoExterior() y setTelefonoExterior() permiten obtener y establecer su valor de la variable.
-    String getTelefonoExterior() {
+    public String getTelefonoExterior() {
         return telefonoExterior;
     }
     void setTelefonoExterior(String telefonoExterior) {
         this.telefonoExterior = telefonoExterior;
     }
     //getPuesto() y setPuesto() permiten obtener y establecer su valor de la variable.
-    String getPuesto() {
+    public String getPuesto() {
         return puesto;
     }
     void setPuesto(String puesto) {
         this.puesto = puesto;
+    }
+
+    public String getExtension() {
+        return extension;
+    }
+
+    public void setExtension(String extension) {
+        this.extension = extension;
     }
 }

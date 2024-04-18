@@ -2,7 +2,7 @@ package gestor.empresarial.datos;
 
 public abstract class DatosPersonales {
     //Atributos de la clase
-    private int id;
+    private int Id;
     private String nombre;
     private String apellidos;
     private String correo;
@@ -11,10 +11,10 @@ public abstract class DatosPersonales {
 
     //getId() y setId() permiten obtener y establecer su valor de la variable.
     protected int getId() {
-        return id;
+        return Id;
     }
     protected void setId(int id) {
-        this.id = id;
+        this.Id = id;
     }
     //getNombre() y setNombre() permiten obtener y establecer su valor de la variable.
     public String getNombre() {
@@ -38,7 +38,7 @@ public abstract class DatosPersonales {
        this.correo = correo;
     }
     //getWhatsapp() y setWhatsapp() permiten obtener y establecer su valor de la variable.
-    protected String getWhatsapp() {
+    public String getWhatsapp() {
         return whatsapp;
     }
     protected void setWhatsapp(String whatsapp) {
