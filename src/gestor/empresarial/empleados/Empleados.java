@@ -86,6 +86,7 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
 
     //Método addContrato con pas de parámetros
     public void addContrato(int indice, Contrato contrato) {
+
         this.contraDatos[indice] = contrato;
     }
 
@@ -123,6 +124,7 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
     }
 
     public int getId(int indice){
+
         return guard[indice];
     }
 

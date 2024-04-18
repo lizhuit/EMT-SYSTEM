@@ -1,9 +1,7 @@
 package gestor.interfaz;
-
-import gestor.empresarial.datos.DatosEmpresariales;
-import gestor.empresarial.datos.DatosPersonales;
-import gestor.interfaz.*;
-import gestor.empresarial.empleados.*;
+import gestor.empresarial.datos.*;
+import gestor.interfaz.Menu1;
+import gestor.empresarial.empleados.Empleados;
 import gestor.errores.GestionErrores;
 
 import javax.swing.*;
@@ -70,13 +68,13 @@ public class Menu3 extends JFrame{
 
     private void obtenerYGuardarDatosEmpresariales(int indice){
         //tenemos los txt
-        String tel=txtTel.getText();
-        String ext=txtExt.getText();
-        String ads=txtAds.getText();
+        String telefono=txtTel.getText();
+        String extension=txtExt.getText();
+        String adscripcion=txtAds.getText();
         String puesto=txtPuesto.getText();
 
         //guarda en DE
-        DatosEmpresariales objDE=new DatosEmpresariales(tel,ext,ads,puesto);
+        DatosEmpresariales objDE=new DatosEmpresariales(telefono,extension,adscripcion,puesto);
 
         //obj en Empleados
         emple.addDatosEmpresariales(indice,objDE);
