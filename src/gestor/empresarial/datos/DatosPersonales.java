@@ -1,12 +1,16 @@
 package gestor.empresarial.datos;
 
-public abstract class DatosPersonales {
+public class DatosPersonales {
     //Atributos de la clase
     private int Id;
     private String nombre;
     private String apellidos;
     private String correo;
     private String whatsapp;
+
+    public DatosPersonales(String nombre,String correo,String whatsapp){
+
+    }
 
 
     //getId() y setId() permiten obtener y establecer su valor de la variable.
