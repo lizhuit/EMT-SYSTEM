@@ -97,14 +97,6 @@
               <text value="Agregar"/>
             </properties>
           </component>
-          <component id="931a3" class="javax.swing.JButton" binding="btnCerrar">
-            <constraints>
-              <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Cerrar"/>
-            </properties>
-          </component>
           <scrollpane id="63523">
             <constraints>
               <grid row="5" column="0" row-span="1" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -118,6 +110,15 @@
               </component>
             </children>
           </scrollpane>
+          <component id="931a3" class="javax.swing.JButton" binding="btnCerrar">
+            <constraints>
+              <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-3026220"/>
+              <text value="Cerrar"/>
+            </properties>
+          </component>
         </children>
       </grid>
     </children>
