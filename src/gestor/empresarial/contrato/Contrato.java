@@ -43,4 +43,15 @@ public final class Contrato {//final evita que sea heredada
         return anio;//regresa año
     }
 
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public Cargos getTipoCargo() {
+        return tipoCargo;
+    }
 }
