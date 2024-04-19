@@ -12,6 +12,7 @@ public class DatosPersonales {
         this.nombre=nombre;
         this.whatsapp=whatsapp;
         this.correo=correo;
+        this.apellidos=apellidos;
 
     }
 

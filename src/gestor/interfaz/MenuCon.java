@@ -3,6 +3,7 @@ package gestor.interfaz;
 import gestor.empresarial.contrato.*;
 import gestor.empresarial.datos.*;
 import gestor.empresarial.empleados.*;
+import gestor.errores.*;
 
 //librerias a utilizar de JAVA
 import javax.swing.*;
@@ -12,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Contrato1 extends JFrame{
+public class MenuCon extends JFrame{
     private JPanel panel1;
     private JTextField txtIdEmple;
     private JTextField txtNumContrato;
@@ -30,9 +31,9 @@ public class Contrato1 extends JFrame{
 
     DefaultTableModel dtm=new DefaultTableModel();//se crea la tabla
     private Empleados emple;
-    private int indice=-1;
+    private int start=-1;
 
-    public Contrato1(){
+    public MenuCon(){
         emple=emple.getInstancia();
         ventana();//se ajusta la ventana
 
@@ -45,8 +46,8 @@ public class Contrato1 extends JFrame{
 
     }
     private void ventana(){
-        setTitle("EMT-SYSTEM"); //Estabalecemos el titulo de la ventana
-        this.setSize(1000, 800); //Establecemos el tamaño de la ventana
+        setTitle("EMT-SYSTEM <<CONTRATO>>"); //Estabalecemos el titulo de la ventana
+        this.setSize(800, 900); //Establecemos el tamaño de la ventana
         this.setResizable(false);
         this.setLocationRelativeTo(null); //Establecemos la posicion inicial de la ventana en el centro
         this.getContentPane().add(panel1);
@@ -56,17 +57,17 @@ public class Contrato1 extends JFrame{
     }
 
     private void startComp(){
-        String encabezados[]={"ID empleado","Nombre Completo","No.Contrato","Año","Cargo"};
+        String encabezados[]={"ID empleado","Nombre","No.Contrato","Año","Cargo"};
         dtm.setColumnIdentifiers(encabezados);
         lista.getTableHeader().setResizingAllowed(false);
         lista.getTableHeader().setReorderingAllowed(false);
         lista.setModel(dtm);
         if(emple.datosContratoVacios()==false){
-            actualizarTablaDesdeContrato();
+            actTC();
         }
     }
 
-    private void obtenerYGuardarContrato(){
+    private void obtYguarC(){
         int noContrato = Integer.parseInt(txtNumContrato.getText());
         int anio=Integer.parseInt(txtAnio.getText());
         //String horario=txtHorario.getText();
@@ -75,11 +76,11 @@ public class Contrato1 extends JFrame{
         Contrato obj=new Contrato(noContrato,anio,tipoCargo);//se gardan datos en el contrato
 
         //guarda el objeto en empleados
-        emple.addContrato(indice,obj);
+        emple.addContrato(start,obj);
         emple.imprimirDatos();
     }
 
-    private void actualizarTablaDesdeContrato(){
+    private void actTC(){
         //se limpia la tabla
         dtm.setRowCount(0);
 
@@ -108,12 +109,12 @@ public class Contrato1 extends JFrame{
                 if(textoBusqueda != null){
                     //busca el id de la lista de empleados
                     int idBuscando=Integer.parseInt(textoBusqueda);//se va a int
-                    indice=emple.findEmpleado(idBuscando);
+                    start=emple.findEmpleado(idBuscando);
 
                     //verifica si se encontro el ID
-                    if(indice != -1){
-                        DatosPersonales datosPersonales=emple.getInfoPersonal(indice);
-                        DatosEmpresariales datosEmpresariales=emple.getInfoEmpresarial(indice);
+                    if(start != -1){
+                        DatosPersonales datosPersonales=emple.getInfoPersonal(start);
+                        DatosEmpresariales datosEmpresariales=emple.getInfoEmpresarial(start);
 
                         //onteniendo la info relacionada al ID
                         String nombre=datosPersonales.getNombre();
@@ -121,19 +122,19 @@ public class Contrato1 extends JFrame{
                         String puesto=datosEmpresariales.getPuesto();
 
                         //muestra en la interfaz
-                        labId.setText("ID:" +idBuscando);
-                        labName.setText("Nombre:"+nombre);
-                        labAdscripcion.setText("Adscripción"+adscripcion);
-                        labPuesto.setText("Puesto"+puesto);
+                        labId.setText("ID-> "+idBuscando);
+                        labName.setText("Nombre-> "+nombre);
+                        labAdscripcion.setText("Adscripción-> "+adscripcion);
+                        labPuesto.setText("Puesto-> "+puesto);
                         txtIdEmple.setText("");
                     }else{
                         //sms de error
-                        JOptionPane.showMessageDialog(Contrato1.this, "ID NO ENCONTRADO", "Error",JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(MenuCon.this, "ID NO ENCONTRADO", "Error",JOptionPane.ERROR_MESSAGE);
 
                     }
                 }
                 else{
-                    JOptionPane.showMessageDialog(Contrato1.this,"ID VACIO","ERROR",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(MenuCon.this,"ID VACIO","ERROR",JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -165,7 +166,7 @@ public class Contrato1 extends JFrame{
         btnAgregar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(indice != -1){
+                if(start != -1){
                     String noContrato=txtNumContrato.getText();
                     String anio=txtAnio.getText();
                     //String horario=txtHorario.getText();
@@ -174,22 +175,14 @@ public class Contrato1 extends JFrame{
                     //ve que hayan 0 campos vacios
                     if(noContrato.isEmpty() || anio.isEmpty() || tipoCargo==null){
                         //sms error diciendo q campo esta vacio
-                        String mensaje="COMPLETE TODOS LOS CAMPOS \n";
-                        if(noContrato.isEmpty()){
-                            mensaje = mensaje + "Némero de Contrato \n";
-                        }
-                        if(anio.isEmpty()){
-                            mensaje = mensaje + "Año \n";
-                        }
-                        if(tipoCargo==null){
-                            mensaje = mensaje + "Tipo de Cargo \n";
-                        }
-                        JOptionPane.showMessageDialog(null,mensaje,"CAMPOS VACÍOS",JOptionPane.ERROR_MESSAGE);
+                        String sms="COMPLETE TODOS LOS CAMPOS \n";
+
+                        JOptionPane.showMessageDialog(null,sms,"CAMPOS VACÍOS",JOptionPane.ERROR_MESSAGE);
                     }
                     else{
                         //agregamos a las filas
-                        obtenerYGuardarContrato();
-                        actualizarTablaDesdeContrato();
+                        obtYguarC();
+                        actTC();
 
                         //clear txt after add
                         txtNumContrato.setText("");

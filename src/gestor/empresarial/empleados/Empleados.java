@@ -13,14 +13,14 @@ public final class Empleados implements iEmpleados {
     private DatosPersonales persoDatos[];
     private Contrato contraDatos[];
     public int[] guard = new int[50];
-    private static Empleados instancia;
+    private static Empleados dependencia;
     private int i;
     public GestionErrores error;
 
     //Constructor sin parámetros
     public Empleados() {
         i = 0;
-        instancia = null;
+        dependencia = null;
         empreDatos = new DatosEmpresariales[50];
         persoDatos = new DatosPersonales[50];
         contraDatos = new Contrato[50];
@@ -28,10 +28,10 @@ public final class Empleados implements iEmpleados {
 
     //Mantener datos
     public static Empleados getInstancia() {
-        if (instancia == null) {
-            instancia = new Empleados();
+        if (dependencia == null) {
+            dependencia = new Empleados();
         }
-        return instancia;
+        return dependencia;
     }
 
     //Método addDatosPersonales con paso de parámetros
@@ -83,56 +83,56 @@ public final class Empleados implements iEmpleados {
         this.contraDatos[indice] = contrato;
     }*/
 
-    public void addDatosEmpresariales(int indice, DatosEmpresariales datosEmpresariales) {
-        this.empreDatos[indice] = datosEmpresariales;
+    public void addDatosEmpresariales(int start, DatosEmpresariales datosEmpresariales) {
+        this.empreDatos[start] = datosEmpresariales;
     }
 
-    public void addContrato(int indice, Contrato contrato) {
-        this.contraDatos[indice] = contrato;
+    public void addContrato(int start, Contrato contrato) {
+        this.contraDatos[start] = contrato;
     }
 
 
     //Método findEmpleado
     public int findEmpleado(int id) {
-        int indice = -1;
+        int start = -1;
         for (int j = 0; j < 50; j++) {
             if (guard[j] == id) {
-                indice = j;
+                start = j;
                 break;
             }
         }
-        return indice;
+        return start;
     }
 
     //Método  findEmpleado
     private int findEmpleado(String nombre) {
-        int indice = -1;
+        int start = -1;
         for (int j = 0; j < 50; j++) {
             if (persoDatos[j] != null && persoDatos[j].getNombre().equals(nombre)) {
-                indice = j;
+                start = j;
                 break;
             }
         }
-        return indice;
+        return start;
     }
 
-    public int getId(int indice){
+    public int getId(int start){
 
-        return guard[indice];
+        return guard[start];
     }
 
-    public DatosPersonales getInfoPersonal(int indice) {
-        DatosPersonales datosPersonales = this.persoDatos[indice];
+    public DatosPersonales getInfoPersonal(int start) {
+        DatosPersonales datosPersonales = this.persoDatos[start];
         return datosPersonales;
     }
 
-    public DatosEmpresariales getInfoEmpresarial(int indice) {
-        DatosEmpresariales datosEmpresariales = this.empreDatos[indice];
+    public DatosEmpresariales getInfoEmpresarial(int start) {
+        DatosEmpresariales datosEmpresariales = this.empreDatos[start];
         return datosEmpresariales;
     }
 
-    public Contrato getInfoContrato(int indice) {
-        Contrato contrato = this.contraDatos[indice];
+    public Contrato getInfoContrato(int start) {
+        Contrato contrato = this.contraDatos[start];
         return contrato;
     }
 
@@ -147,8 +147,8 @@ public final class Empleados implements iEmpleados {
     }
 
     //Método getAntiguedad que regresa w
-    public int getAntiguedad(int annio) {
-        int antiguedad = Year.now().getValue() - annio;
+    public int getAntiguedad(int anio) {
+        int antiguedad = Year.now().getValue() - anio;
         return 0;
     }
 
@@ -160,14 +160,14 @@ public final class Empleados implements iEmpleados {
 
 
     public boolean datosPerVacios(){
-        int suma=0;
+        int s=0;
         boolean vacio;
         for(int j=0; j<50; j++){
             if(persoDatos[j] != null){
-                suma += 1;
+                s =s + 1;
             }
         }
-        if (suma>0){
+        if (s>0){
             vacio = false;
         }else{
             vacio = true;
@@ -176,14 +176,14 @@ public final class Empleados implements iEmpleados {
     }
 
     public boolean datosEmpVacios(){
-        int suma=0;
+        int s=0;
         boolean vacio;
         for(int j=0; j<50; j++){
             if(empreDatos[j] != null){
-                suma += 1;
+                s =s+ 1;
             }
         }
-        if (suma>0){
+        if (s>0){
             vacio = false;
         }else{
             vacio = true;
@@ -192,14 +192,14 @@ public final class Empleados implements iEmpleados {
     }
 
     public boolean datosContratoVacios(){
-        int suma=0;
+        int s=0;
         boolean vacio;
         for(int j=0; j<50; j++){
             if(contraDatos[j] != null){
-                suma += 1;
+                s =s + 1;
             }
         }
-        if (suma>0){
+        if (s>0){
             vacio = false;
         }else{
             vacio = true;

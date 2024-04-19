@@ -2,6 +2,7 @@ package gestor.errores;
 //Se importa el paquete java.util.* para usar las clases y las interfaces que contiene, como Map.
 //import gestor.archivos.ArchivoTexto;
 import gestor.archivos.ArchivoTexto;
+import gestor.interfaz.*;
 import java.util.*;
 
 public class GestionErrores {
