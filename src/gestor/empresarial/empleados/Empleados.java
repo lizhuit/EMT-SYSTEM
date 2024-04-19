@@ -27,7 +27,7 @@ public final class Empleados implements iEmpleados {
     }
 
     //Mantener datos
-    public Empleados getInstancia() {
+    public static Empleados getInstancia() {
         if (instancia == null) {
             instancia = new Empleados();
         }
