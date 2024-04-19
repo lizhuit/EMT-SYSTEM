@@ -8,7 +8,8 @@ public class DatosPersonales {
     private String correo;
     private String whatsapp;
 
-    public DatosPersonales(String nombre,String whatsapp,String correo){
+    public DatosPersonales(String nombre,String whatsapp,String correo){//Constructor con parámetros
+        //Asignar valores de los parámetros a las variables de instancia
         this.nombre=nombre;
         this.whatsapp=whatsapp;
         this.correo=correo;
@@ -38,19 +39,19 @@ public class DatosPersonales {
     protected void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
-    //getCorreo() y setCorreo() permiten obtener y establecer su valor de la variable.
+
+    //getWhatsapp() y setWhatsapp() permiten obtener y establecer su valor de la variable.
     public String getWhatsapp() {
         return whatsapp;
     }
     protected void setWhatsapp(String whatsapp) {
         this.whatsapp = whatsapp;
     }
+    //getCorreo() y setCorreo() permiten obtener y establecer su valor de la variable.
     public String getCorreo() {
         return correo;
     }
     protected void setCorreo(String correo) {
        this.correo = correo;
     }
-    //getWhatsapp() y setWhatsapp() permiten obtener y establecer su valor de la variable.
-
 }

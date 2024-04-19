@@ -8,8 +8,9 @@ public final class DatosEmpresariales {
     private String extension;
 
 
-    //Constructor
+    //Constructor con parámetros
     public DatosEmpresariales(String telefonoExterior,String extension,String adscripcion,String puesto){
+        //Asignar valores de los parámetros a las variables de instancia
         this.telefonoExterior=telefonoExterior;
         this.extension=extension;
         this.adscripcion=adscripcion;
