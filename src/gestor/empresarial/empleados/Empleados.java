@@ -1,4 +1,4 @@
-//Importa dos clases de otros paquetes
+package gestor.empresarial.empleados;//Importa dos clases de otros paquetes
 import gestor.empresarial.contrato.*;
 import gestor.empresarial.datos.DatosEmpresariales;
 import gestor.empresarial.datos.DatosPersonales;
@@ -229,7 +229,7 @@ public final class Empleados implements iEmpleados {
         return 0;
     }
 }
-
+/*
 //metodo duplicado de datos
 public boolean buscarDuplicadosP(int id, String nombre, String whatsapp, String correo){
     boolean hayDuplicados = false;
@@ -248,3 +248,5 @@ public boolean buscarDuplicadosP(int id, String nombre, String whatsapp, String 
     }
     return hayDuplicados;
 }
+*/
+

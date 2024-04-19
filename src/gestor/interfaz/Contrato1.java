@@ -234,6 +234,8 @@ public class Contrato1 extends JFrame{
 
 
 
+
+
     }
 
 }
