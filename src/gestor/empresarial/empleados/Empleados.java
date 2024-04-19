@@ -1,9 +1,8 @@
-package gestor.empresarial.empleados;//Declara que esta clase pertenece al paquete gestor.empresarial
-
 //Importa dos clases de otros paquetes
 import gestor.empresarial.contrato.*;
 import gestor.empresarial.datos.DatosEmpresariales;
 import gestor.empresarial.datos.DatosPersonales;
+import gestor.empresarial.empleados.iEmpleados;
 import gestor.errores.GestionErrores;
 import java.time.Year;
 
@@ -19,25 +18,25 @@ public final class Empleados implements iEmpleados {
     private int i;
     public GestionErrores error;
 
-        //Constructor sin parámetros
+    //Constructor sin parámetros
     public Empleados() {
-            i = 0;
-            instancia = null;
-            empreDatos = new DatosEmpresariales[50];
-            persoDatos = new DatosPersonales[50];
-            contraDatos = new Contrato[50];
-        }
+        i = 0;
+        instancia = null;
+        empreDatos = new DatosEmpresariales[50];
+        persoDatos = new DatosPersonales[50];
+        contraDatos = new Contrato[50];
+    }
 
-        //Mantener datos
-        public Empleados getInstancia() {
-            if (instancia == null) {
-                instancia = new Empleados();
-            }
-            return instancia;
+    //Mantener datos
+    public Empleados getInstancia() {
+        if (instancia == null) {
+            instancia = new Empleados();
         }
+        return instancia;
+    }
 
-//Método addDatosPersonales con paso de parámetros
-public void addDatosPersonales(DatosPersonales datosPersonales) {
+    //Método addDatosPersonales con paso de parámetros
+    public void addDatosPersonales(DatosPersonales datosPersonales) {
         this.persoDatos[this.i] = datosPersonales;
         guard[i] = i + 1;
         this.i++;
@@ -249,10 +248,3 @@ public boolean buscarDuplicadosP(int id, String nombre, String whatsapp, String 
     }
     return hayDuplicados;
 }
-
-
-
-
-
-
-
