@@ -5,35 +5,35 @@ import gestor.errores.GestionErrores;
 //Declara la clase Empresa como final, lo que significa que no se puede heredar de ella.
 public final class Empresa {
     //Atributos
-    private String nombreEmpresa = "Itera Process";
-    private String representanteLegal = "Roberto García";
-    private String telefono = "222 298 6412";
-    private String rfc = "GARO280698P71";
-    public Empleados datosRH;
-    public GestionErrores error;
+    private String nombreEmpresa = "Itera Process"; //Nombre de la Empresa
+    private String representanteLegal = "Roberto García"; //Nombre del representante
+    private String telefono = "222 298 6412"; //Telefono
+    private String rfc = "GARO280698P71"; //RFC
+    public Empleados datosRH; //Atributo de tipo Empleados
+    public GestionErrores error; //Atributo de tipo GestionErrores
 
     //Constructor de Empresa con paso de parámetros
     public Empresa (String a, String b){
 
     }
-    //Método setRepresentanteLegal
 
+    //SET y GET para NombreEmpresa
     public String getNombreEmpresa() {
         return nombreEmpresa;
     }
-
     public void setNombreEmpresa(String nombreEmpresa) {
         this.nombreEmpresa = nombreEmpresa;
     }
 
+    //SET y GET para RepresentanteLegal
     public void setRepresentanteLegal(String representanteLegal) {
         this.representanteLegal = representanteLegal;
     }
-    //Método getRepresentanteLegal, regresa representanteLegal
     public String getRepresentanteLegal() {
         return representanteLegal;
     }
 
+    //SET y GET para Telefono
     public String getTelefono() {
         return telefono;
     }
@@ -42,10 +42,10 @@ public final class Empresa {
         this.telefono = telefono;
     }
 
+    //SET y GET para rfc
     public String getRfc() {
         return rfc;
     }
-
     public void setRfc(String rfc) {
         this.rfc = rfc;
     }
