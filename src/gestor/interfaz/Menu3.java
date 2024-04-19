@@ -48,15 +48,15 @@ public class Menu3 extends JFrame{
 
     public void ajustesVentana(){
         setTitle("EMT-SYSTEM Menu3"); //Estabalecemos el titulo de la ventana
-        this.setSize(300, 300); //Establecemos el tamaño de la ventana
-        //this.setResizable(false);
+        this.setSize(1000, 500); //Establecemos el tamaño de la ventana
+        this.setResizable(false);
         this.setLocationRelativeTo(null); //Establecemos la posicion inicial de la ventana en el centro
         this.getContentPane().add(panel1);
         this.setVisible(true); //Volvemos nuestra ventana visible
         setDefaultCloseOperation(EXIT_ON_CLOSE); //Indicamos que termine la ejecucion del programa al cerrar la ventana
     }
     private void initComponents(){
-        String encabezados[]={"ID","Nombre","Extension","Telefono","Adscripción","Puesto"};
+        String encabezados[]={"ID","Nombre","Telefono","Extension","Adscripción","Puesto"};
         dtm.setColumnIdentifiers(encabezados);
         tablaM3.getTableHeader().setResizingAllowed(false);//ventana estatica
         tablaM3.getTableHeader().setReorderingAllowed(false);
@@ -97,7 +97,7 @@ public class Menu3 extends JFrame{
                 String ext=objDE.getExtension();
                 String ads=objDE.getAdscripcion();
                 String puesto=objDE.getPuesto();
-                dtm.addRow(new Object[]{id,nom,ext,tel,ads,puesto});
+                dtm.addRow(new Object[]{id,nom,tel,ext,ads,puesto});
             }
         }
     }
@@ -124,7 +124,7 @@ public class Menu3 extends JFrame{
                         idEmple.setText("ID" + busquedaId);
                         nomEmple.setText("Nombre" +nombre);
                         watsEmple.setText("WhatsApp" +whatsapp);
-                        correoEmple.setText("Correo" + correoEmple);
+                        correoEmple.setText("Correo" + correo);
                         txtId.setText("");
                     }
                     else{
@@ -145,8 +145,8 @@ public class Menu3 extends JFrame{
                     int selectedRow= tablaM3.getSelectedRow();
                     if(selectedRow !=-1){//selecciona fila???
                         //tenemos datos de la fila
-                        Object tel=tablaM3.getValueAt(selectedRow,3);
-                        Object ext=tablaM3.getValueAt(selectedRow,2);
+                        Object tel=tablaM3.getValueAt(selectedRow,2);
+                        Object ext=tablaM3.getValueAt(selectedRow,3);
                         Object ads=tablaM3.getValueAt(selectedRow,4);
                         Object puesto=tablaM3.getValueAt(selectedRow,5);
 
@@ -200,14 +200,16 @@ public class Menu3 extends JFrame{
                         actualizarTablaDesdeDatosEmpresariales();
 
                         //clear txt
-                        txtTel.setText("");
-                        txtExt.setText("");
-                        txtAds.setText("");
-                        txtPuesto.setText("");
                         idEmple.setText("");
                         nomEmple.setText("");
                         watsEmple.setText("");
                         correoEmple.setText("");
+
+                        txtTel.setText("");
+                        txtExt.setText("");
+                        txtAds.setText("");
+                        txtPuesto.setText("");
+
                     }
                 }
                 else{

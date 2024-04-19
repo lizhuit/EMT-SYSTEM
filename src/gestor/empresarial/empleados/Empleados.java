@@ -53,7 +53,7 @@ public final class Empleados implements iEmpleados {
             }
         }
         if (datosEmpVacios() == false){
-            for(int j=0; j<100; j++){
+            for(int j=0; j<50; j++){
                 if (empreDatos[j] != null){
                     String telefono = empreDatos[j].getTelefonoExterior();
                     String extencion = empreDatos[j].getExtension();

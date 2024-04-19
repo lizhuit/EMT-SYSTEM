@@ -1,9 +1,10 @@
 package gestor.interfaz;
 
-import gestor.interfaz.*;
-import gestor.empresarial.datos.DatosPersonales;
+import gestor.interfaz.Menu1;
+import gestor.empresarial.datos.*;
 import gestor.empresarial.empleados.*;
 import gestor.errores.*;
+import gestor.errores.GestionErrores;
 
 import javax.swing.*;
 import javax.swing.event.*;
@@ -40,7 +41,7 @@ public class Menu2 extends JFrame {
 
     public void ajustesVentana() {
         setTitle("EMT-SYSTEM Menu2"); //Estabalecemos el titulo de la ventana
-        this.setSize(300, 300); //Establecemos el tamaño de la ventana
+        this.setSize(500, 500); //Establecemos el tamaño de la ventana
         //this.setResizable(false);
         this.setLocationRelativeTo(null); //Establecemos la posicion inicial de la ventana en el centro
         this.getContentPane().add(panel1);
@@ -131,13 +132,13 @@ public class Menu2 extends JFrame {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 if (!e.getValueIsAdjusting()) {//no hay events de varia seleccion
-                    int selectRow = tabM2.getSelectedRow();
-                    if (selectRow != -1) { //si se selecciono fila
+                    int selectedRow = tabM2.getSelectedRow();
+                    if (selectedRow != -1) { //si se selecciono fila
                         //date of fila select
-                        Object id = tabM2.getValueAt(selectRow, 0);
-                        Object nombre = tabM2.getValueAt(selectRow, 1);
-                        Object wtapp = tabM2.getValueAt(selectRow, 2);
-                        Object correo = tabM2.getValueAt(selectRow, 3);
+                        Object id = tabM2.getValueAt(selectedRow, 0);
+                        Object nombre = tabM2.getValueAt(selectedRow, 1);
+                        Object wtapp = tabM2.getValueAt(selectedRow, 2);
+                        Object correo = tabM2.getValueAt(selectedRow, 3);
 
                         //muestra datos de txt
                         txtIdDP.setText(id.toString());
@@ -170,7 +171,7 @@ public class Menu2 extends JFrame {
                     //true y agrega
                     obtenerYGuardarDatosPersonales();
                     actualizarTablaDesdeDatosPersonales();
-                    //clear y add
+                    //clear txt y add
                     txtIdDP.setText("");
                     txtNombre.setText("");
                     txtWats.setText("");
