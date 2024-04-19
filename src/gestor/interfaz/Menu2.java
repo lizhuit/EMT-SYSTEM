@@ -2,7 +2,7 @@ package gestor.interfaz;
 
 import gestor.interfaz.*;
 import gestor.empresarial.datos.DatosPersonales;
-import gestor.empresarial.empleados.Empleados;
+import gestor.empresarial.empleados.*;
 import gestor.errores.*;
 
 import javax.swing.*;

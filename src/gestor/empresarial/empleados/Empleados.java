@@ -14,7 +14,7 @@ public final class Empleados implements iEmpleados {
     private DatosEmpresariales empreDatos[];
     private DatosPersonales persoDatos[];
     private Contrato contraDatos[];
-    private int[] guard = new int[50];
+    public int[] guard = new int[50];
     private static Empleados instancia;
     private int i;
     public GestionErrores error;
@@ -78,8 +78,6 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
             }
         }
     }
-
-
 
     //Método addContrato con pas de parámetros
     /*public void addContrato(int indice, Contrato contrato) {
@@ -211,6 +209,11 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
         return vacio;
     }
 
+    public DatosPersonales getInfoPersonal (int indice){
+        DatosPersonales datosPersonales = this.persoDatos[indice];
+        return datosPersonales;
+    }
+
 
     @Override
     public String getInfoEmpleado(int a) {
@@ -232,6 +235,26 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
         return 0;
     }
 }
+
+//metodo duplicado de datos
+public boolean buscarDuplicadosP(int id, String nombre, String whatsapp, String correo){
+    boolean hayDuplicados = false;
+    for(int j=0; j<50; j++){
+        DatosPersonales obj = getInfoPersonal(j);
+        if (obj != null){
+            int idP = guard[j];
+            String nombreP = obj.getNombre();
+            String whatsP = obj.getWhatsapp();
+            String correoP = obj.getCorreo();
+            if(idP == id || nombreP.equals(nombre) || whatsP.equals(whatsapp) || correoP.equals(correo)){
+                hayDuplicados = true;
+                break;
+            }
+        }
+    }
+    return hayDuplicados;
+}
+
 
 
 
