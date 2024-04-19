@@ -46,7 +46,7 @@ public class Contrato1 extends JFrame{
     }
     private void ventana(){
         setTitle("EMT-SYSTEM"); //Estabalecemos el titulo de la ventana
-        this.setSize(300, 300); //Establecemos el tamaño de la ventana
+        this.setSize(1000, 800); //Establecemos el tamaño de la ventana
         this.setResizable(false);
         this.setLocationRelativeTo(null); //Establecemos la posicion inicial de la ventana en el centro
         this.getContentPane().add(panel1);
@@ -56,11 +56,11 @@ public class Contrato1 extends JFrame{
     }
 
     private void startComp(){
-        String encabezados[]={"ID empleado","Nombre Completo","No.Contrato","Fecha","Cargo"};
+        String encabezados[]={"ID empleado","Nombre Completo","No.Contrato","Año","Cargo"};
         dtm.setColumnIdentifiers(encabezados);
-        tbCon.getTableHeader().setResizingAllowed(false);
-        tbCon.getTableHeader().setReorderingAllowed(false);
-        tbCon.setModel(dtm);
+        lista.getTableHeader().setResizingAllowed(false);
+        lista.getTableHeader().setReorderingAllowed(false);
+        lista.setModel(dtm);
         if(emple.datosContratoVacios()==false){
             actualizarTablaDesdeContrato();
         }
@@ -69,10 +69,10 @@ public class Contrato1 extends JFrame{
     private void obtenerYGuardarContrato(){
         int noContrato = Integer.parseInt(txtNumContrato.getText());
         int anio=Integer.parseInt(txtAnio.getText());
-        String horario=txtHorario.getText();
+        //String horario=txtHorario.getText();
         Cargos tipoCargo=(Cargos) comBoxCargo.getSelectedItem();
 
-        Contrato obj=new Contrato(noContrato,anio,horario,tipoCargo);//se gardan datos en el contrato
+        Contrato obj=new Contrato(noContrato,anio,tipoCargo);//se gardan datos en el contrato
 
         //guarda el objeto en empleados
         emple.addContrato(indice,obj);
@@ -81,7 +81,7 @@ public class Contrato1 extends JFrame{
 
     private void actualizarTablaDesdeContrato(){
         //se limpia la tabla
-        //dtm.setRowCount(0);*****************************************
+        dtm.setRowCount(0);
 
         //se agregan datos a la tabla:
         for(int i=0;i<50;i++){
@@ -94,7 +94,7 @@ public class Contrato1 extends JFrame{
                 int anio=obj.getAnnio();
                 String horario=obj.getHorario();
                 Cargos cargo=obj.getTipoCargo();
-                dtm.addRow(new Object[]{id,nombre,noContrato,anio,horario,cargo});
+                dtm.addRow(new Object[]{id,nombre,noContrato,anio,cargo});
 
             }
         }
@@ -139,22 +139,22 @@ public class Contrato1 extends JFrame{
         });
 
         //agregamos a la lista
-        tbCon.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+        lista.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 if(!e.getValueIsAdjusting()){//no habra selección multiple
-                    int selectedRow=tbCon.getSelectedRow();
+                    int selectedRow=lista.getSelectedRow();
                     if(selectedRow !=-1){
                         //obtenemos datos de la fila seleccionada
-                        Object noContrato=tbCon.getValueAt(selectedRow,2);
-                        Object anio=tbCon.getValueAt(selectedRow,3);
-                        Object horario=tbCon.getValueAt(selectedRow,4);
-                        Object tipoCargo=tbCon.getValueAt(selectedRow,5);
+                        Object noContrato=lista.getValueAt(selectedRow,2);
+                        Object anio=lista.getValueAt(selectedRow,3);
+                        //Object horario=lista.getValueAt(selectedRow,4);
+                        Object tipoCargo=lista.getValueAt(selectedRow,5);
 
                         //regresa datos en los cuadros de escritura
                         txtNumContrato.setText(noContrato.toString());
                         txtAnio.setText(anio.toString());
-                        txtHorario.setText(horario.toString());
+                        //txtHorario.setText(horario.toString());
                         comBoxCargo.setSelectedItem(tipoCargo);
                     }
                 }
@@ -168,10 +168,11 @@ public class Contrato1 extends JFrame{
                 if(indice != -1){
                     String noContrato=txtNumContrato.getText();
                     String anio=txtAnio.getText();
-                    String horario=txtHorario.getText();
+                    //String horario=txtHorario.getText();
                     Cargos tipoCargo =(Cargos) comBoxCargo.getSelectedItem();
+
                     //ve que hayan 0 campos vacios
-                    if(noContrato.isEmpty() || anio.isEmpty() || horario.isEmpty() || tipoCargo==null){
+                    if(noContrato.isEmpty() || anio.isEmpty() || tipoCargo==null){
                         //sms error diciendo q campo esta vacio
                         String mensaje="COMPLETE TODOS LOS CAMPOS \n";
                         if(noContrato.isEmpty()){
@@ -193,7 +194,7 @@ public class Contrato1 extends JFrame{
                         //clear txt after add
                         txtNumContrato.setText("");
                         txtAnio.setText("");
-                        txtHorario.setText("");
+                        //txtHorario.setText("");
                         comBoxCargo.setSelectedItem(null);
                         labId.setText("");
                         labName.setText("");
@@ -210,7 +211,7 @@ public class Contrato1 extends JFrame{
         btnCerrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Menu1 onjm=new Menu1();
+                Menu1 objm=new Menu1();
                 dispose();
             }
         });

@@ -65,13 +65,13 @@ public final class Empleados implements iEmpleados {
         }
 
         if (datosContratoVacios() == false){
-            for(int j=0; j<100; j++){
+            for(int j=0; j<50; j++){
                 if (contraDatos[j] != null){
                     int noContrato = contraDatos[j].getNoContrato();
                     int annio = contraDatos[j].getAnnio();
-                    String horario = contraDatos[j].getHorario();
+                    //String horario = contraDatos[j].getHorario();
                     Cargos tipoCargo = contraDatos[j].getTipoCargo();
-                    System.out.println("ID:" + guard[j] + "\tNoConctato:" + noContrato + "\tAnnio:" + annio + "\tHorario:" + horario + "\tCargo:" + tipoCargo);
+                    System.out.println("ID:" + guard[j] + "\tNoContrato:" + noContrato + "\tAnnio:" + annio + "\tCargo:" + tipoCargo);
                 }
             }
         }
