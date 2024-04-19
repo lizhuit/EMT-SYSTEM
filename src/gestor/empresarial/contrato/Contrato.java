@@ -17,27 +17,28 @@ public final class Contrato {//final evita que sea heredada
         tipoCargo = Cargos.confianza;
         tipoCargo = Cargos.sindicalizado;
         tipoCargo = Cargos.temporal;
-
+        //instacias
         this.noContrato = noContrato;
         this.anio = anio;
         this.horario = horario;
         this.tipoCargo = tipoCargo;
 
     }
-    // Métodos setter y getter
+    //SET y GET de NoContrato
     public int getNoContrato() {
         return noContrato;//regresa noContrato
     }
     public void setNoContrato(int noContrato) {
         this.noContrato = noContrato;
     }
+    //SET y GET de Annio
     public void setAnnio(int anio) {
         this.anio = anio;
     }
     public int getAnnio() {
         return anio;//regresa año
     }
-
+    //SET y GET de Horario
     public String getHorario() {
         return horario;
     }
@@ -45,7 +46,7 @@ public final class Contrato {//final evita que sea heredada
     public void setHorario(String horario) {
         this.horario = horario;
     }
-
+    //SET y GET de TipoCargo
     public Cargos getTipoCargo() {
         return tipoCargo;
     }

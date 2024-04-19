@@ -7,10 +7,10 @@ public enum Cargos{
     confianza("Empleado (confianza)"),
     sindicalizado("Empleado (sindicalizado)"),
     temporal("Empleado (temporal)");
-    private String nombre;
+    private String nombre; //alamacena la descripcción asosiada a cada cargo
 
     Cargos(String nombre){//Constructor de Cargos
-        this.nombre  = nombre;
+        this.nombre = nombre;
     }
 
     @Override
