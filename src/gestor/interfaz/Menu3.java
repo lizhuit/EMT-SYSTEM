@@ -121,10 +121,10 @@ public class Menu3 extends JFrame{
                         String correo=datosPersonales.getCorreo();
 
                         //vemos info
-                        idEmple.setText("ID" + busquedaId);
-                        nomEmple.setText("Nombre" +nombre);
-                        watsEmple.setText("WhatsApp" +whatsapp);
-                        correoEmple.setText("Correo" + correo);
+                        idEmple.setText("ID " + busquedaId);
+                        nomEmple.setText("Nombre " +nombre);
+                        watsEmple.setText("WhatsApp " +whatsapp);
+                        correoEmple.setText("Correo " + correo);
                         txtId.setText("");
                     }
                     else{
@@ -200,15 +200,15 @@ public class Menu3 extends JFrame{
                         actualizarTablaDesdeDatosEmpresariales();
 
                         //clear txt
-                        idEmple.setText("");
-                        nomEmple.setText("");
-                        watsEmple.setText("");
-                        correoEmple.setText("");
-
                         txtTel.setText("");
                         txtExt.setText("");
                         txtAds.setText("");
                         txtPuesto.setText("");
+
+                        idEmple.setText("");
+                        nomEmple.setText("");
+                        watsEmple.setText("");
+                        correoEmple.setText("");
 
                     }
                 }
