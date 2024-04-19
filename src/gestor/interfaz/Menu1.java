@@ -10,6 +10,7 @@ public class Menu1 extends JFrame {
     private JButton btnContrato;
     private JButton btnCerrar;
     private JButton btnDatosEmpr;
+    private JPanel panelM1;
 
 
     public void funcBtn() {
