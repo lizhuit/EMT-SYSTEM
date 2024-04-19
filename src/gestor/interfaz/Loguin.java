@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Loguin extends JFrame {
+    private JPanel panelLog;
 
     private JPanel Contenedor;
     private JTextField txtUsuario;
@@ -29,7 +30,7 @@ public class Loguin extends JFrame {
         this.setSize(300, 300); //Establecemos el tamaño de la ventana
         this.setResizable(false);
         this.setLocationRelativeTo(null); //Establecemos la posicion inicial de la ventana en el centro
-        this.getContentPane().add(Contenedor);
+        this.getContentPane().add(panelLog);
         this.setVisible(true); //Volvemos nuestra ventana visible
         setDefaultCloseOperation(EXIT_ON_CLOSE); //Indicamos que termine la ejecucion del programa al cerrar la ventana
 
