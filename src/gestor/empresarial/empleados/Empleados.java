@@ -209,11 +209,6 @@ public void addDatosPersonales(DatosPersonales datosPersonales) {
         return vacio;
     }
 
-    public DatosPersonales getInfoPersonal (int indice){
-        DatosPersonales datosPersonales = this.persoDatos[indice];
-        return datosPersonales;
-    }
-
 
     @Override
     public String getInfoEmpleado(int a) {
