@@ -1,6 +1,7 @@
 package gestor.empresarial.contrato;
 
 import gestor.empresarial.empleados.*;
+
 // Declaración de la clase Contrato
 public final class Contrato {//final evita que sea heredada
     // Declaración de los atributos de la clase

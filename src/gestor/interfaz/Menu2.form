@@ -16,14 +16,6 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="24f93" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="DATOS PERSONALES"/>
-            </properties>
-          </component>
           <component id="35a86" class="javax.swing.JLabel">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -117,6 +109,14 @@
             <properties>
               <background color="-3026220"/>
               <text value="Cerrar"/>
+            </properties>
+          </component>
+          <component id="24f93" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="DATOS PERSONALES"/>
             </properties>
           </component>
         </children>

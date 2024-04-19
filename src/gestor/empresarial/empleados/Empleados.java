@@ -1,7 +1,6 @@
 package gestor.empresarial.empleados;//Importa dos clases de otros paquetes
 import gestor.empresarial.contrato.*;
-import gestor.empresarial.datos.DatosEmpresariales;
-import gestor.empresarial.datos.DatosPersonales;
+import gestor.empresarial.datos.*;
 import gestor.empresarial.empleados.iEmpleados;
 import gestor.errores.GestionErrores;
 import java.time.Year;
@@ -228,25 +227,27 @@ public final class Empleados implements iEmpleados {
     public int getAntiguedad() {
         return 0;
     }
-}
-/*
-//metodo duplicado de datos
-public boolean buscarDuplicadosP(int id, String nombre, String whatsapp, String correo){
-    boolean hayDuplicados = false;
-    for(int j=0; j<50; j++){
-        DatosPersonales obj = getInfoPersonal(j);
-        if (obj != null){
-            int idP = guard[j];
-            String nombreP = obj.getNombre();
-            String whatsP = obj.getWhatsapp();
-            String correoP = obj.getCorreo();
-            if(idP == id || nombreP.equals(nombre) || whatsP.equals(whatsapp) || correoP.equals(correo)){
-                hayDuplicados = true;
-                break;
+
+    //metodo duplicado de datos
+    public boolean buscarDuplicadosP(int id, String nombre, String whatsapp, String correo){
+        boolean hayDuplicados = false;
+        for(int j=0; j<50; j++){
+            DatosPersonales obj = getInfoPersonal(j);
+            if (obj != null){
+                int idP = guard[j];
+                String nombreP = obj.getNombre();
+                String whatsP = obj.getWhatsapp();
+                String correoP = obj.getCorreo();
+                if(idP == id || nombreP.equals(nombre) || whatsP.equals(whatsapp) || correoP.equals(correo)){
+                    hayDuplicados = true;
+                    break;
+                }
             }
         }
+        return hayDuplicados;
     }
-    return hayDuplicados;
 }
-*/
+
+
+
 
