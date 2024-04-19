@@ -181,13 +181,13 @@ public class Menu3 extends JFrame{
                         //sms error
                         String sms=gestionErrores.getDescription(1);
                         if(telefono.isEmpty()){
-                            sms=sms+"Telefono";
+                            sms=sms+ "Telefono";
                         }
                         if(extension.isEmpty()){
-                            sms=sms+"Extension";
+                            sms=sms+ "Extension";
                         }
                         if(adscripcion.isEmpty()){
-                            sms=sms+"Adscripcion";
+                            sms=sms+ "Adscripcion";
                         }
                         if(puesto.isEmpty()){
                             sms=sms+"Puesto";
