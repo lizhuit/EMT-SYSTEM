@@ -12,28 +12,25 @@ public final class Contrato {//final evita que sea heredada
     private Cargos tipoCargo;
 
     // Constructor de la clase Contrato
-    public Contrato(int noContrato, int anio, String horario, Cargos tipoCargo){ // parámetros
+    public Contrato(int noContrato, int anio, Cargos tipoCargo){ // parámetros
         // Inicialización del tipo de cargo
         tipoCargo = Cargos.confianza;
         tipoCargo = Cargos.sindicalizado;
         tipoCargo = Cargos.temporal;
 
-        this.tipoCargo = tipoCargo;
-        this.horario = horario;
         this.noContrato = noContrato;
         this.anio = anio;
+        this.horario = horario;
+        this.tipoCargo = tipoCargo;
+
     }
     // Métodos setter y getter
-    public void setTipoCargo(Cargos tipoCargo){
-        this.tipoCargo = tipoCargo;
+    public int getNoContrato() {
+        return noContrato;//regresa noContrato
     }
     public void setNoContrato(int noContrato) {
         this.noContrato = noContrato;
     }
-    public int getNoContrato() {
-        return noContrato;//regresa noContrato
-    }
-
     public void setAnnio(int anio) {
         this.anio = anio;
     }
@@ -51,5 +48,8 @@ public final class Contrato {//final evita que sea heredada
 
     public Cargos getTipoCargo() {
         return tipoCargo;
+    }
+    public void setTipoCargo(Cargos tipoCargo){
+        this.tipoCargo = tipoCargo;
     }
 }

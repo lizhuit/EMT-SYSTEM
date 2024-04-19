@@ -18,13 +18,13 @@ public class MapaErrores {
     }
     //función en donde colocamos los mensajes de error para usarlos en el progrma:
     private void listaErrores(){
-        error.put(1, "Hay campos incompletos:");
-        error.put(2, "Contraseña o Usuario incorrectos");
-        error.put(3, "¡UPS! hay campos vacíos");
-        error.put(4, "Seleccione un empleado");
-        error.put(5, "Datos repetidos");
-        error.put(6, "Error 404");
-        error.put(7, "Error capa 8 :)");
+        error.put(1, "LLENA TODOS LOS CAMPOS");
+        error.put(2, "USUARIO Y/O CONTRASEÑA, INCORRECTOS");
+        error.put(3, "¡UPS! HAY CAMPOS VACÍOS");
+        error.put(4, "SELECCCIONE UN EMPLEADO");
+        error.put(5, "ESOS DATOS YA EXISTEN");
+        error.put(6, "ERROR 404");
+        error.put(7, "ERROR capa 8 :)");
     }
 
     //recibe el número del error como paso de parametros

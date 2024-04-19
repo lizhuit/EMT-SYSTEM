@@ -8,7 +8,11 @@ public class DatosPersonales {
     private String correo;
     private String whatsapp;
 
-    public DatosPersonales(String nombre,String correo,String whatsapp){
+    public DatosPersonales(String nombre,String whatsapp,String correo){
+        this.nombre=nombre;
+        this.whatsapp=whatsapp;
+        this.correo=correo;
+        this.apellidos=apellidos;
 
     }
 
@@ -35,6 +39,12 @@ public class DatosPersonales {
         this.apellidos = apellidos;
     }
     //getCorreo() y setCorreo() permiten obtener y establecer su valor de la variable.
+    public String getWhatsapp() {
+        return whatsapp;
+    }
+    protected void setWhatsapp(String whatsapp) {
+        this.whatsapp = whatsapp;
+    }
     public String getCorreo() {
         return correo;
     }
@@ -42,10 +52,5 @@ public class DatosPersonales {
        this.correo = correo;
     }
     //getWhatsapp() y setWhatsapp() permiten obtener y establecer su valor de la variable.
-    public String getWhatsapp() {
-        return whatsapp;
-    }
-    protected void setWhatsapp(String whatsapp) {
-        this.whatsapp = whatsapp;
-    }
+
 }
