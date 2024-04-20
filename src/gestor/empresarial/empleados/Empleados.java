@@ -1,4 +1,5 @@
-package gestor.empresarial.empleados;//Importa dos clases de otros paquetes
+package gestor.empresarial.empleados;
+//Importa dos clases de otros paquetes
 import gestor.empresarial.contrato.*;
 import gestor.empresarial.datos.*;
 import gestor.empresarial.empleados.iEmpleados;
@@ -6,21 +7,23 @@ import gestor.errores.GestionErrores;
 import java.time.Year;
 
 //Declara una clase abstracta Empleados que implementa la interfaz iEmpleados.
-// Al ser abstracta, esta clase no puede ser instanciada
+// Al ser final, esta clase no puede ser heredada
 public final class Empleados implements iEmpleados {
     //Atibutos
+    //arreglo de objetos
     private DatosEmpresariales empreDatos[];
     private DatosPersonales persoDatos[];
     private Contrato contraDatos[];
-    public int[] guard = new int[50];
-    private static Empleados dependencia;
+    public int[] guard = new int[50]; //Arreglo
+    private static Empleados dependencia;//atributo de tipo Empleado
     private int i;
-    public GestionErrores error;
+    public GestionErrores error; //atributo de  tipo GestionErrores
 
     //Constructor sin parámetros
     public Empleados() {
-        i = 0;
-        dependencia = null;
+        i = 0;//inicializar i
+        dependencia = null; //no contiene nada
+        //inicializar arrglos
         empreDatos = new DatosEmpresariales[50];
         persoDatos = new DatosPersonales[50];
         contraDatos = new Contrato[50];
@@ -31,18 +34,18 @@ public final class Empleados implements iEmpleados {
         if (dependencia == null) {
             dependencia = new Empleados();
         }
-        return dependencia;
+        return dependencia;//devuelve instancia de empleados
     }
 
     //Método addDatosPersonales con paso de parámetros
-    public void addDatosPersonales(DatosPersonales datosPersonales) {
+    public void addDatosPersonales(DatosPersonales datosPersonales) {//Agregar datos personales de un empleado
         this.persoDatos[this.i] = datosPersonales;
-        guard[i] = i + 1;
+        guard[i] = i + 1; //Asigna valor al arreglo
         this.i++;
     }
 
     public void imprimirDatos(){
-        if(datosPerVacios() == false){
+        if(datosPerVacios() == false){//Ciclo para recorrer el arreglo
             for(int j=0; j<50; j++){
                 if (persoDatos[j] != null){
                     String nombre = persoDatos[j].getNombre();
@@ -52,7 +55,7 @@ public final class Empleados implements iEmpleados {
                 }
             }
         }
-        if (datosEmpVacios() == false){
+        if (datosEmpVacios() == false){// verifica si los datos empresariales están vacíos
             for(int j=0; j<50; j++){
                 if (empreDatos[j] != null){
                     String telefono = empreDatos[j].getTelefonoExterior();
@@ -64,13 +67,14 @@ public final class Empleados implements iEmpleados {
             }
         }
 
-        if (datosContratoVacios() == false){
+        if (datosContratoVacios() == false){ //Se obtienen los datos empresariales del empleado en la posición j
             for(int j=0; j<50; j++){
                 if (contraDatos[j] != null){
                     int noContrato = contraDatos[j].getNoContrato();
                     int annio = contraDatos[j].getAnnio();
                     //String horario = contraDatos[j].getHorario();
                     Cargos tipoCargo = contraDatos[j].getTipoCargo();
+                    //Se imprimen datos
                     System.out.println("ID:" + guard[j] + "\tNoContrato:" + noContrato + "\tAnnio:" + annio + "\tCargo:" + tipoCargo);
                 }
             }
@@ -83,20 +87,22 @@ public final class Empleados implements iEmpleados {
         this.contraDatos[indice] = contrato;
     }*/
 
+    //Método addDatosEmpresariales
     public void addDatosEmpresariales(int start, DatosEmpresariales datosEmpresariales) {
         this.empreDatos[start] = datosEmpresariales;
     }
 
+    //Método addContrato
     public void addContrato(int start, Contrato contrato) {
         this.contraDatos[start] = contrato;
     }
 
 
-    //Método findEmpleado
+    //Método Para buscar Empleados
     public int findEmpleado(int id) {
         int start = -1;
-        for (int j = 0; j < 50; j++) {
-            if (guard[j] == id) {
+        for (int j = 0; j < 50; j++) {//ciclo que recorre el arreglo
+            if (guard[j] == id) {//si la posición j es igual al id
                 start = j;
                 break;
             }
@@ -115,22 +121,22 @@ public final class Empleados implements iEmpleados {
         }
         return start;
     }
-
+    //Get de id
     public int getId(int start){
 
         return guard[start];
     }
-
+    //Get de infoPersonal
     public DatosPersonales getInfoPersonal(int start) {
         DatosPersonales datosPersonales = this.persoDatos[start];
         return datosPersonales;
     }
-
+    //Get de infoEmpresarial
     public DatosEmpresariales getInfoEmpresarial(int start) {
         DatosEmpresariales datosEmpresariales = this.empreDatos[start];
         return datosEmpresariales;
     }
-
+    //Get para infoContarto
     public Contrato getInfoContrato(int start) {
         Contrato contrato = this.contraDatos[start];
         return contrato;
@@ -158,16 +164,16 @@ public final class Empleados implements iEmpleados {
     }
 
 
-
+    //Método para dedectar datos persoanles vacios
     public boolean datosPerVacios(){
-        int s=0;
+        int a=0;
         boolean vacio;
         for(int j=0; j<50; j++){
             if(persoDatos[j] != null){
-                s =s + 1;
+                a=a + 1;
             }
         }
-        if (s>0){
+        if (a>0){
             vacio = false;
         }else{
             vacio = true;
@@ -175,15 +181,16 @@ public final class Empleados implements iEmpleados {
         return vacio;
     }
 
+    //Método para dedectar datos empresarilaes vacios
     public boolean datosEmpVacios(){
-        int s=0;
+        int t=0;
         boolean vacio;
         for(int j=0; j<50; j++){
-            if(empreDatos[j] != null){
-                s =s+ 1;
+            if(empreDatos[j] != null){//Si empreDatos en la posición j es difrente a null
+                t=t+ 1;
             }
         }
-        if (s>0){
+        if (t>0){
             vacio = false;
         }else{
             vacio = true;
@@ -191,22 +198,22 @@ public final class Empleados implements iEmpleados {
         return vacio;
     }
 
+    //Método para dedectar datos de contrato vacios
     public boolean datosContratoVacios(){
-        int s=0;
+        int z=0;
         boolean vacio;
-        for(int j=0; j<50; j++){
+        for(int j=0; j<50; j++){//Ciclo que recorre el arreglo
             if(contraDatos[j] != null){
-                s =s + 1;
+                z=z+ 1;
             }
         }
-        if (s>0){
+        if (z>0){
             vacio = false;
         }else{
             vacio = true;
         }
         return vacio;
     }
-
 
     @Override
     public String getInfoEmpleado(int a) {
@@ -228,23 +235,26 @@ public final class Empleados implements iEmpleados {
         return 0;
     }
 
-    //metodo duplicado de datos
+    //metodo para encontrar los datos duplicados
     public boolean buscarDuplicadosP(int id, String nombre, String whatsapp, String correo){
-        boolean hayDuplicados = false;
-        for(int j=0; j<50; j++){
-            DatosPersonales obj = getInfoPersonal(j);
-            if (obj != null){
+        boolean hayDuplicados = false; //se inicia en false porque no a detectado ningún duplicado
+        for(int j=0; j<50; j++){//ciclo para recorrer el arreglo
+            DatosPersonales obj = getInfoPersonal(j);//objeto de datosPersonales
+            if (obj != null){//si el objeto no es nula, es porque hay datos almacenados
                 int idP = guard[j];
+                //Se obtiene datos de empleados
                 String nombreP = obj.getNombre();
                 String whatsP = obj.getWhatsapp();
                 String correoP = obj.getCorreo();
+                //se verifica si alguno de los datos personales del empleado
+                // es igual a los parámetros que se pasaron
                 if(idP == id || nombreP.equals(nombre) || whatsP.equals(whatsapp) || correoP.equals(correo)){
-                    hayDuplicados = true;
+                    hayDuplicados = true;// true si hay datos duplicados
                     break;
                 }
             }
         }
-        return hayDuplicados;
+        return hayDuplicados;//indica si hay o no duplicados
     }
 }
 
