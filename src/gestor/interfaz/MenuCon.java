@@ -23,10 +23,6 @@ public class MenuCon extends JFrame{
     private JTable lista;
     private JButton btnCerrar;
     private JComboBox comBoxCargo;
-    private JLabel labId;
-    private JLabel labName;
-    private JLabel labAdscripcion;
-    private JLabel labPuesto;
     private JTable tbCon;
 
     DefaultTableModel dtm=new DefaultTableModel();//se crea la tabla
@@ -121,12 +117,6 @@ public class MenuCon extends JFrame{
                         String adscripcion=datosEmpresariales.getAdscripcion();
                         String puesto=datosEmpresariales.getPuesto();
 
-                        //muestra en la interfaz
-                        labId.setText("ID-> "+idBuscando);
-                        labName.setText("Nombre-> "+nombre);
-                        labAdscripcion.setText("Adscripción-> "+adscripcion);
-                        labPuesto.setText("Puesto-> "+puesto);
-                        txtIdEmple.setText("");
                     }else{
                         //sms de error
                         JOptionPane.showMessageDialog(MenuCon.this, "ID NO ENCONTRADO", "Error",JOptionPane.ERROR_MESSAGE);
@@ -189,10 +179,7 @@ public class MenuCon extends JFrame{
                         txtAnio.setText("");
                         //txtHorario.setText("");
                         comBoxCargo.setSelectedItem(null);
-                        labId.setText("");
-                        labName.setText("");
-                        labAdscripcion.setText("");
-                        labPuesto.setText("");
+
                     }
                 }
                 else{

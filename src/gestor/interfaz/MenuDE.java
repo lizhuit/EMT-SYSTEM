@@ -22,10 +22,6 @@ public class MenuDE extends JFrame{
     private JTable tablaM3;
     private JButton btnAgregar;
     private JButton btnCerrar;
-    private JLabel idEmple;
-    private JLabel nomEmple;
-    private JLabel watsEmple;
-    private JLabel correoEmple;
 
     DefaultTableModel dtm=new DefaultTableModel();//creamos tabla
 
@@ -116,12 +112,6 @@ public class MenuDE extends JFrame{
                         String whatsapp=datosPersonales.getWhatsapp();
                         String correo=datosPersonales.getCorreo();
 
-                        //vemos info
-                        idEmple.setText("ID-> " + busquedaId);
-                        nomEmple.setText("Nombre-> " +nombre);
-                        watsEmple.setText("WhatsApp-> " +whatsapp);
-                        correoEmple.setText("Correo-> " + correo);
-                        txtId.setText("");
                     }
                     else{
                         String sms=gestionErrores.getDescription(4);
@@ -191,10 +181,6 @@ public class MenuDE extends JFrame{
                         txtAds.setText("");
                         txtPuesto.setText("");
 
-                        idEmple.setText("");
-                        nomEmple.setText("");
-                        watsEmple.setText("");
-                        correoEmple.setText("");
 
                     }
                 }

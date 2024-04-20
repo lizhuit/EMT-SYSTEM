@@ -19,7 +19,7 @@ public class DatosPersonales {
 
 
     //getId() y setId() permiten obtener y establecer su valor de la variable.
-    protected int getId() {
+    protected int getId() {/*está publico para all archivo*/
         return Id;
     }
     protected void setId(int id) {

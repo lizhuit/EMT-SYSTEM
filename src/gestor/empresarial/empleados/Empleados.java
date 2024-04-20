@@ -37,7 +37,7 @@ public final class Empleados implements iEmpleados {
         return dependencia;//devuelve instancia de empleados
     }
 
-    //Método addDatosPersonales con paso de parámetros
+    //Método addDatosPersonales con paso de parámetros-agregacion
     public void addDatosPersonales(DatosPersonales datosPersonales) {//Agregar datos personales de un empleado
         this.persoDatos[this.i] = datosPersonales;
         guard[i] = i + 1; //Asigna valor al arreglo
@@ -73,7 +73,7 @@ public final class Empleados implements iEmpleados {
                     int noContrato = contraDatos[j].getNoContrato();
                     int annio = contraDatos[j].getAnnio();
                     //String horario = contraDatos[j].getHorario();
-                    Cargos tipoCargo = contraDatos[j].getTipoCargo();
+/*********/         Cargos tipoCargo = contraDatos[j].getTipoCargo();
                     //Se imprimen datos
                     System.out.println("ID:" + guard[j] + "\tNoContrato:" + noContrato + "\tAnnio:" + annio + "\tCargo:" + tipoCargo);
                 }
@@ -87,12 +87,12 @@ public final class Empleados implements iEmpleados {
         this.contraDatos[indice] = contrato;
     }*/
 
-    //Método addDatosEmpresariales
+    //Método addDatosEmpresariales-agregacion
     public void addDatosEmpresariales(int start, DatosEmpresariales datosEmpresariales) {
         this.empreDatos[start] = datosEmpresariales;
     }
 
-    //Método addContrato
+    //Método addContrato-agregacion
     public void addContrato(int start, Contrato contrato) {
         this.contraDatos[start] = contrato;
     }
@@ -224,6 +224,7 @@ public final class Empleados implements iEmpleados {
     public String getInfoEmpleado(String a) {
         return null;
     }
+
 
     @Override
     public void showDatosEmpleado() {
