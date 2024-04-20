@@ -99,7 +99,7 @@ public final class Empleados implements iEmpleados {
 
 
     //Método Para buscar Empleados
-    public int findEmpleado(int id) {
+    public int findEmpleado(int id) {//busca un empleado por su Id
         int start = -1;
         for (int j = 0; j < 50; j++) {//ciclo que recorre el arreglo
             if (guard[j] == id) {//si la posición j es igual al id
@@ -107,23 +107,23 @@ public final class Empleados implements iEmpleados {
                 break;
             }
         }
-        return start;
+        return start;//devuelve -1 si no se encuentra
     }
 
     //Método  findEmpleado
-    private int findEmpleado(String nombre) {
+    private int findEmpleado(String nombre) {//busca un empleado por su nombre
         int start = -1;
-        for (int j = 0; j < 50; j++) {
+        for (int j = 0; j < 50; j++) {//ciclo que recorre el arreglo
             if (persoDatos[j] != null && persoDatos[j].getNombre().equals(nombre)) {
                 start = j;
                 break;
             }
         }
-        return start;
+        return start;//devuelve -1 si no se encuentra
     }
+
     //Get de id
     public int getId(int start){
-
         return guard[start];
     }
     //Get de infoPersonal
@@ -168,8 +168,8 @@ public final class Empleados implements iEmpleados {
     public boolean datosPerVacios(){
         int a=0;
         boolean vacio;
-        for(int j=0; j<50; j++){
-            if(persoDatos[j] != null){
+        for(int j=0; j<50; j++){//Ciclo que recorre el arreglo
+            if(persoDatos[j] != null){//si persoDatos en la posición j es diferente a null
                 a=a + 1;
             }
         }
