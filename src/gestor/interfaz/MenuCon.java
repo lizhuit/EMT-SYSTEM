@@ -3,7 +3,7 @@ package gestor.interfaz;
 import gestor.empresarial.contrato.*;
 import gestor.empresarial.datos.*;
 import gestor.empresarial.empleados.*;
-import gestor.errores.*;
+
 
 //librerias a utilizar de JAVA
 import javax.swing.*;
@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MenuCon extends JFrame{
+    //Atributos que se encuentran en la ventana
     private JPanel panel1;
     private JTextField txtIdEmple;
     private JTextField txtNumContrato;
@@ -27,16 +28,19 @@ public class MenuCon extends JFrame{
 
     DefaultTableModel dtm=new DefaultTableModel();//se crea la tabla
     private Empleados emple;
-    private int start=-1;
+    private int start;
 
+    //constructor
     public MenuCon(){
+        start=-1;
         emple=emple.getInstancia();
+        //funcion
         ventana();//se ajusta la ventana
 
         //se utiliza la clase enum cargos, sale como lista de seleccion
         comBoxCargo.setModel(new DefaultComboBoxModel<>(Cargos.values()));
 
-
+        //funciones:
         startComp();
         funcBotones();
 
@@ -52,7 +56,7 @@ public class MenuCon extends JFrame{
 
     }
 
-    private void startComp(){
+    private void startComp(){//se inicializa la ventana(tabla)
         String encabezados[]={"ID empleado","Nombre","No.Contrato","Año","Cargo"};
         dtm.setColumnIdentifiers(encabezados);
         lista.getTableHeader().setResizingAllowed(false);
@@ -97,7 +101,7 @@ public class MenuCon extends JFrame{
         }
     }
 
-    public void funcBotones(){
+    public void funcBotones(){//funcionalidades de btns
         txtIdEmple.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -131,7 +135,7 @@ public class MenuCon extends JFrame{
 
         //agregamos a la lista
         lista.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
+            @Override //sobreescritura
             public void valueChanged(ListSelectionEvent e) {
                 if(!e.getValueIsAdjusting()){//no habra selección multiple
                     int selectedRow=lista.getSelectedRow();
@@ -195,29 +199,6 @@ public class MenuCon extends JFrame{
                 dispose();
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
 }
 

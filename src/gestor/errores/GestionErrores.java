@@ -2,8 +2,7 @@ package gestor.errores;
 //Se importa el paquete java.util.* para usar las clases y las interfaces que contiene, como Map.
 //import gestor.archivos.ArchivoTexto;
 import gestor.archivos.ArchivoTexto;
-import gestor.interfaz.*;
-import java.util.*;
+
 
 public class GestionErrores {
     //private HashMap<Integer, String> error;
@@ -18,11 +17,10 @@ public class GestionErrores {
         //error = new HashMap<Integer, String>();
         mapaErrores=new MapaErrores();
         archivoTexto=new ArchivoTexto("ERRORES");
-
     }
     //Métodos
 
-    public String getDescription(int noErrror){
+    public String getDescription(int noErrror){ //
         description=mapaErrores.MensajeError(noErrror);
         escribirEnArchivo(noErrror,description);
         return description;

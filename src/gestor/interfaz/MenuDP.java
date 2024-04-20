@@ -1,9 +1,11 @@
 package gestor.interfaz;
 
+//importan paquetes
 import gestor.empresarial.datos.*;
 import gestor.empresarial.empleados.*;
 import gestor.errores.GestionErrores;
 
+//importamos librerias
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
@@ -12,6 +14,7 @@ import java.awt.event.ActionListener;
 import javax.swing.event.ListSelectionEvent;
 
 public class MenuDP extends JFrame {
+    //atributos de la ventana
     private JPanel panel1;
     private JPanel panelM2;
     private JTextField txtIdDP;
@@ -23,16 +26,16 @@ public class MenuDP extends JFrame {
     private JTable tabM2;
 
 
-    DefaultTableModel dtm = new DefaultTableModel();
+    DefaultTableModel dtm = new DefaultTableModel();//se crea la tabla
     private Empleados emple;
     private GestionErrores gestionErrores;
 
-    public MenuDP() {
+    public MenuDP() {//constructor
         emple = emple.getInstancia();
         gestionErrores = new GestionErrores();
 
+        //funciones:
         ventana();
-
         initComponents();
         funcbtn();
     }
@@ -65,7 +68,7 @@ public class MenuDP extends JFrame {
         String wats = txtWats.getText();
         String correo = txtCorreo.getText();
 
-        //guarda datos en DatosPesonales
+        //guarda DP en DP
         DatosPersonales objDP = new DatosPersonales(nombre, wats, correo);
 
         //giardamos objDP en Emple
@@ -75,7 +78,6 @@ public class MenuDP extends JFrame {
 
     private void actTDP() {
         //clear table
-        //*****************************
         dtm.setRowCount(0);
 
         //add table
@@ -116,12 +118,13 @@ public class MenuDP extends JFrame {
     }
 
     public void funcbtn() {
+        //agrega "ListSelectionListener a JTable
         tabM2.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 if (!e.getValueIsAdjusting()) {//no hay events de varia seleccion
                     int selectedRow = tabM2.getSelectedRow();
-                    if (selectedRow != -1) { //si se selecciono fila
+                    if (selectedRow != -1) { //selecciona fila?
                         //date of fila select
                         Object id = tabM2.getValueAt(selectedRow, 0);
                         Object nombre = tabM2.getValueAt(selectedRow, 1);
@@ -157,8 +160,8 @@ public class MenuDP extends JFrame {
                 boolean camposCorrect = camposV();//ningun campo vacio/repetido
                 if (camposCorrect == true) {
                     //true y agrega
-                    obYguarDP();
-                    actTDP();
+                    obYguarDP();//funcione
+                    actTDP();//funcion
                     //clear txt y add
                     txtIdDP.setText("");
                     txtNombre.setText("");
@@ -169,19 +172,3 @@ public class MenuDP extends JFrame {
         });
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

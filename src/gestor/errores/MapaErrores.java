@@ -16,7 +16,8 @@ public class MapaErrores {
         error=new HashMap<>();
         listaErrores();
     }
-    //función en donde colocamos los mensajes de error para usarlos en el progrma:
+    //función en donde colocamos los sms de error para usarlos en el progrma:
+    //se pueden usar n sms de error
     private void listaErrores(){
         error.put(1, "LLENA TODOS LOS CAMPOS");
         error.put(2, "USUARIO Y/O CONTRASEÑA, INCORRECTOS");

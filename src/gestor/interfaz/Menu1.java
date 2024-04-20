@@ -1,13 +1,14 @@
 package gestor.interfaz;
 
-
+//importamos librerías a utilizar
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import gestor.empresarial.empleados.Empleados;
+import gestor.empresarial.empleados.Empleados;//importamos paquetes
 
 public class Menu1 extends JFrame {
+    //Declaración de atributos
     private JButton btnDatosPer;
     private JButton btnContrato;
     private JButton btnCerrar;
@@ -17,8 +18,8 @@ public class Menu1 extends JFrame {
 
     Empleados emple;
 
-    public Menu1(){
-        emple = emple.getInstancia();
+    public Menu1(){//constructor
+        emple = emple.getInstancia();//se pide el método que eta en Empleados "get.Instamcia"
         setTitle("Menu EMT-System"); //Establecemos el titulo de la ventana
         this.setSize(800,400); //Establecemos el tamaño de la ventana
         this.setResizable(false);
@@ -30,7 +31,8 @@ public class Menu1 extends JFrame {
         funcBtn();
     }
 
-    public void startBtn(){
+
+    public void startBtn(){//habilitamos botones
         if(emple.datosPerVacios() == true){
             btnDatosEmpr.setEnabled(false);
             btnContrato.setEnabled(false);
@@ -39,7 +41,8 @@ public class Menu1 extends JFrame {
         }
     }
 
-    public void funcBtn() {
+    //losbotones que estan, les damos funcionalidad
+    public void funcBtn() { //Método donde hacemos funcionar a los botones
         btnCerrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

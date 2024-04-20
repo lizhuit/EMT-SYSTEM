@@ -1,8 +1,10 @@
 package gestor.interfaz;
+//importamos paquetes
 import gestor.empresarial.datos.*;
 import gestor.empresarial.empleados.*;
 import gestor.errores.GestionErrores;
 
+//importamoslibrerias
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -12,6 +14,7 @@ import java.awt.event.ActionListener;
 
 
 public class MenuDE extends JFrame{
+    //atributos que tiene la ventana
     private JPanel panel1;
     private JPanel PanelM3;
     private JTextField txtId;//buscador
@@ -26,13 +29,13 @@ public class MenuDE extends JFrame{
     DefaultTableModel dtm=new DefaultTableModel();//creamos tabla
 
     private Empleados emple;
-    private int start=-1;
+    private int start=-1;//lo podemos utilizar en cualquier lado
     private GestionErrores gestionErrores;
 
     public MenuDE(){
         emple=emple.getInstancia();
         gestionErrores=new GestionErrores();
-
+        //funciones:
         ventana();
         initComponents();
         funcbtn();
@@ -94,9 +97,9 @@ public class MenuDE extends JFrame{
         }
     }
 
-    public void funcbtn(){
+    public void funcbtn(){//haceos funcionar btns
         txtId.addActionListener(new ActionListener() {
-            @Override
+            @Override//sobreescribimosS
             public void actionPerformed(ActionEvent e) {
                 String textoBusqueda=txtId.getText();
                 if(textoBusqueda != null){
@@ -171,7 +174,7 @@ public class MenuDE extends JFrame{
                         JOptionPane.showMessageDialog(null,sms,"VACIO",JOptionPane.ERROR_MESSAGE);
                     }
                     else{
-                        //agregamos a tabla
+                        //agregamos a fila de tabla
                         obtDE(start);
                         actTDE();
 
@@ -185,7 +188,7 @@ public class MenuDE extends JFrame{
                     }
                 }
                 else{
-                    String sms=gestionErrores.getDescription(5);
+                    String sms=gestionErrores.getDescription(5);//manda a traer el error
                     JOptionPane.showMessageDialog(null,sms,"NO SE AGEGARON DATOS",JOptionPane.ERROR_MESSAGE);
                 }
             }

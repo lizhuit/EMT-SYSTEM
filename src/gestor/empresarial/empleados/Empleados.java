@@ -1,8 +1,8 @@
 package gestor.empresarial.empleados;
+
 //Importa dos clases de otros paquetes
 import gestor.empresarial.contrato.*;
 import gestor.empresarial.datos.*;
-import gestor.empresarial.empleados.iEmpleados;
 import gestor.errores.GestionErrores;
 import java.time.Year;
 

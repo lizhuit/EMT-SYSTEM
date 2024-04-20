@@ -4,7 +4,7 @@ import gestor.empresarial.empleados.Empleados;
 import gestor.errores.GestionErrores;
 //Declara la clase Empresa como final, lo que significa que no se puede heredar de ella.
 public final class Empresa {
-    //Atributos
+    //Atributos y algunos los inicializamos
     private String nombreEmpresa = "Itera Process"; //Nombre de la Empresa
     private String representanteLegal = "Roberto García"; //Nombre del representante
     private String telefono = "222 298 6412"; //Telefono
