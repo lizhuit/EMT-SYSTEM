@@ -93,7 +93,7 @@ public class MenuCon extends JFrame{
                 String nombre=objDP.getNombre();
                 int noContrato=obj.getNoContrato();
                 int anio=obj.getAnnio();
-                String horario=obj.getHorario();
+                //String horario=obj.getHorario();
                 Cargos cargo=obj.getTipoCargo();
                 dtm.addRow(new Object[]{id,nombre,noContrato,anio,cargo});
 
@@ -116,10 +116,10 @@ public class MenuCon extends JFrame{
                         DatosPersonales datosPersonales=emple.getInfoPersonal(start);
                         DatosEmpresariales datosEmpresariales=emple.getInfoEmpresarial(start);
 
-                        //onteniendo la info relacionada al ID
+                        /*//onteniendo la info relacionada al ID
                         String nombre=datosPersonales.getNombre();
                         String adscripcion=datosEmpresariales.getAdscripcion();
-                        String puesto=datosEmpresariales.getPuesto();
+                        String puesto=datosEmpresariales.getPuesto();*/
 
                     }else{
                         //sms de error
@@ -141,15 +141,15 @@ public class MenuCon extends JFrame{
                     int selectedRow=lista.getSelectedRow();
                     if(selectedRow !=-1){
                         //obtenemos datos de la fila seleccionada
+                        Object id=lista.getValueAt(selectedRow,1);
                         Object noContrato=lista.getValueAt(selectedRow,2);
                         Object anio=lista.getValueAt(selectedRow,3);
-                        //Object horario=lista.getValueAt(selectedRow,4);
-                        Object tipoCargo=lista.getValueAt(selectedRow,5);
+                        Object tipoCargo=lista.getValueAt(selectedRow,4);
 
                         //regresa datos en los cuadros de escritura
+                        txtIdEmple.setText(id.toString());
                         txtNumContrato.setText(noContrato.toString());
                         txtAnio.setText(anio.toString());
-                        //txtHorario.setText(horario.toString());
                         comBoxCargo.setSelectedItem(tipoCargo);
                     }
                 }
